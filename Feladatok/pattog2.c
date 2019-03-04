@@ -1,5 +1,6 @@
 #include<stdlib.h>
 #include<time.h>
+#include<stdo.h>
 
 
 static void gotoxy(int x, int y)           /*kurzor pozicionálása*/
@@ -53,3 +54,4 @@ int main(void)
     usleep (100000);
     (void)system("clear");
   }
+}
