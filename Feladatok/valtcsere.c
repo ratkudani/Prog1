@@ -4,19 +4,19 @@
 int main()
 {
 	
-	printf("Adj meg két számot!\n");
-	double x;
-	double y;
-	scanf("%d",&x);
-	scanf("%d",&y);
-	printf("\n A két általad adott szám felcserélve:\n");	
+	printf("Adj meg két valós számot!\n");
+	double a;
+	double b;
+	scanf("%d",&a);
+	scanf("%d",&b);
+	printf("\n Az általad megadott számok felcserélve:\n");	
 	
-	x = x - y;
-	y = y + x;
-	x = y - x;
+	a = a + b; //a = a + b
+	b = a - b; //b = (a + b) - b = a
+	a = a - b; //a = (a + b) - a = b
 
-	printf("%d",x);
+	printf("%d",a);
 	printf("\n");
-	printf("%d",y);
+	printf("%d",b);
 	printf("\n");
 }
