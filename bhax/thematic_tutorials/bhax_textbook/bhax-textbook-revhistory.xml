@@ -34,4 +34,28 @@
             Aktualizálás, javítások.
         </revremark>
     </revision>
+    <revision>
+        <revnumber>0.0.5</revnumber>
+        <date>2019-03-01</date>
+        <authorinitials>ratku.dani</authorinitials>
+        <revremark>
+            A Helló, Turing csokor megkezdése és a dokumentum formájának a személyre szabása és a saját repository-ba való feltöltés.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.0.6</revnumber>
+        <date>2019-03-04</date>
+        <authorinitials>ratku.dani</authorinitials>
+        <revremark>
+            A Helló, Turing csokor nyolc feladatából az első öt feladatának befejezése.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.0.7</revnumber>
+        <date>2019-03-05</date>
+        <authorinitials>ratku.dani</authorinitials>
+        <revremark>
+            A Helló, Turing csokor befejezése és a Helló, Chomsky feladatcsokor átfutása.
+        </revremark>
+    </revision>
 </revhistory>

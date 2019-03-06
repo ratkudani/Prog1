@@ -12,16 +12,19 @@
             100 százalékban minden magot!
         </para>
         <para>
-            Megoldás videó:
-        </para>
-        <para>
             Megoldás forrása:                
         </para>
         <para>
-            <link xlink:href="https://github.com/pkristof1999/prog1/blob/master/0.c"> első </link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/sleep.c"> Egy magot altató program. </link>
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/1_100.c"> Egy magot 100%-ban kihasználó program.. </link>
+        </para>
+        <para>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/mind_100.c"> Minden magot 100%-ban kihasználó program. </link>
+        </para>
+        <para>
+            A feladat során, az egy magot 100%-osan kihasználó programban, egy olyan do ciklust használtam, amely sosem éri el az abban megadott értéket, ezáltal a végtelenségig futva terheli a processzort. Az összes magot 100%-ban leterhelő program során, meg kellett hívnunk az omp könyvtárat, amellyel a "#pragma omp parallel"-t, amivel elérjük, hogy párhuzamosan terheljük a processzor összes szálát. Emellett egy olyan paraméterek nélküli for ciklust, amellyel megkapjuk a kívánt kihasználtsági szintet. A magot altató programhoz meg kellett hívni az unistd.h nevezetű könyvtárat, amivel tudjuk már használni a nem standard sleep függvényt, ami úgy működik, hogy a bele implantált érték ideéig leállítja a processzor egy szálát. Az egész feladatot végtelen ciklusokkal oldottam meg.
         </para>            
     </section>        
         
@@ -107,7 +110,7 @@ false]]></screen>
             függvényt, azaz a T100 program nem is létezik.                
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+           (A feladat megoldásában Pankotai Kristóf segített) Egy olyan szoftvert kell megírni, ami el tudja dönteni egy adott különböző programról, hogy az lefagy-e, azaz a végtelenségig tud-e futni. Ezt nem lehet elkészíteni, mivel olyan programot nem lehet írni, ami egy másik program végtelenségét vizsgálva megelőzné azt, és annak a végére érkezve eldönthetné, hogy ez egy befagyhatatlan program-e a végtelensége miatt.
         </para>
     </section>        
                 
@@ -118,13 +121,13 @@ false]]></screen>
             nasználata nélkül!
         </para>
         <para>
-            Megoldás videó: <link xlink:href="https://bhaxor.blog.hu/2018/08/28/10_begin_goto_20_avagy_elindulunk">https://bhaxor.blog.hu/2018/08/28/10_begin_goto_20_avagy_elindulunk</link>
-        </para>
-        <para>
             Megoldás forrása:  
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/valtcsere.c"> Változókat felcserélő program. </link>
+        </para>
+        <para>
+            (A feladat megoldásában Pankotai Kristóf segített)Ennek a feladatnak a megoldásához be kell kérni két számot, amelyet a megadott számokkal különböző műveleteket elvégezve megkapjuk ezeknek a sorrendben felcserélt változatát. A feladatban három művelet szerepel, amelyben a változókat adjuk és vonjuk ki egymásból úgy, hogy a kapott eredmény a feladatnak megfelelő módon jelenjen meg.
         </para>
     </section>                     
 
@@ -136,13 +139,19 @@ false]]></screen>
             pattogtatás alatt, alább láthatod a videókon.)
         </para>
         <para>
-            Megoldás videó: <link xlink:href="https://bhaxor.blog.hu/2018/08/28/labdapattogas">https://bhaxor.blog.hu/2018/08/28/labdapattogas</link>
-        </para>
-        <para>
             Megoldás forrása:  
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/pattog.c"> Labdapattogtató feladat megoldása. </link>
+        </para>
+        <para>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/pattog2.c"> Labdapattogtató feladat if nélkül. </link>
+        </para>
+        <para>
+            Ennek a feladatnak a megoldásához meg kell hívnunk az unistd.h és a curses.h könyvtárat. A void azért kell bele, mert nem kér be semmit a program. Először is inícializálnunk kell az ablakot, amelynél figyelembe vesszük a felhasználó által kihúzott méretet. Deklaráljuk a szükséges változókat, például a kiinduló értéket és a haladás irányát. Majd egy végtelen ciklusban az ablak méretének a változását is figyelembe véve vetítjük ki a labda pattogását. Ezt folyamatosan frissítjük és a usleep-et használva megadva a sebességét halad a "labda". A pattogás menetét, azaz irányát if elágazásokkal határozzuk meg, szám szerint néggyel, amely tartalmazza a fel, le, jobbra, és a balra való irányokat.
+        </para>
+        <para>
+            Az if elágazások nélküli feladatnál általunk előre megadott ablak, azaz pályaméret generálunk. Ebben for ciklusokkal haladunk az előbb elmített tömbben, ezzel vizsgáljuk hol van a labda helye. A ciklus futásával halad a labda, ami ha eléri valamelyik tengely falát, akkor az adott iránnyal ellentétes irányba kezdi el a mozgást. Ekkor a folyamat előjele is változik. Ez még formalizálásra kerül.
         </para>
     </section>                     
 
@@ -153,13 +162,13 @@ false]]></screen>
             Használd ugyanazt a while ciklus fejet, amit Linus Torvalds a BogoMIPS rutinjában! 
         </para>
         <para>
-            Megoldás videó: <link xlink:href=""></link>
+            Megoldás forrása:
         </para>
         <para>
-            Megoldás forrása: <link xlink:href=""></link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/szohossz.c"> Szóhossz feladat megoldása. </link>
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat... 
+            Ebben a feladatban meg kellett vizsgálnunk az int típusnak az értékét a gépünkön. Ebben a programban két változóval kell dolgoznunk. Az egyik int értéke nulla, a másik pedig a 0x01, ami a következő sort jelöli. Ezután egy do while ciklussal növeljük a h értékét folyamatosan, egészen addig bitshift/bitwise-olnunk eggyel, amíg el nem jutunk az n által jelölt értékig. Ekkor a program megáll, és megkapjuk a bit értékét. Ebben az esetben balra bitwise-olásról van szó.
         </para>
     </section>                     
 
@@ -170,13 +179,13 @@ false]]></screen>
             értékét!
         </para>
         <para>
-            Megoldás videó: <link xlink:href=""></link>
+            Megoldás forrása:
         </para>
         <para>
-            Megoldás forrása: <link xlink:href=""></link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/PageRank.c"> PageRank feladat. </link>
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Ez az algoritmus a Google nevezetű cég által lett kifejlesztve, melynek céja az oldalak "jó"-ságát mutatja be, ezalatt értve a minőségét, amit az adott oldalra mutató linkek száma határozza meg. Ezáltal a ranglistán egyre előrébb kerülve, a keresőben is elsőbbséget élvezhet az adott weboldal. Az emögött rejlő elméletet értem, a kódját viszont még nem teljesen, ezért leírást róla adni még nem szeretnék, hogy mikor majd megértem, akkor jól struktúrálva, és értelmesen megfogalmazva tudjak róla leírást adni. A későbbiekben teljesen ki lesz dolgozva a feladat.
         </para>
     </section>
 
@@ -186,10 +195,13 @@ false]]></screen>
             Írj R szimulációt a Brun tétel demonstrálására!
         </para>
         <para>
-            Megoldás videó: <link xlink:href="https://youtu.be/xbYhp9G6VqQ">https://youtu.be/xbYhp9G6VqQ</link>
+            Megoldás forrása:
         </para>
         <para>
-            Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/blob/master/attention_raising/Primek_R">https://gitlab.com/nbatfai/bhax/blob/master/attention_raising/Primek_R</link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/stp.r"> Ikerprím feladat. </link>
+        </para>
+        <para>
+            Maga a tétel az ikerprímekről szól, amelyek definiálva úgy tekinthetőek, mint az egymást követő prímek amik között a különbség kettő. A feladat megoldása során deklaráljuk a prímeket egy adott számig, majd a differenciáljukat nézve, a nagyobból kivonjuk a kisebbet. Egy feltétellel a diferenciált keresünk a kettesre. Páronként deklaráljuk a kapott prímeket és a tételnek megfelelően reciprokkal szorozva adjuk össze őket egymással. Legvégül pedig a programon belül egy összesített értéket adunk vissza. Bezárólag pedig, matlab könyvtár által a megadott módon tudjuk ábrázolni a kapott eredményt.
         </para>
     </section>
     
@@ -199,13 +211,13 @@ false]]></screen>
             Írj R szimulációt a Monty Hall problémára!
         </para>
         <para>
-            Megoldás videó: <link xlink:href="https://bhaxor.blog.hu/2019/01/03/erdos_pal_mit_keresett_a_nagykonyvben_a_monty_hall-paradoxon_kapcsan">https://bhaxor.blog.hu/2019/01/03/erdos_pal_mit_keresett_a_nagykonyvben_a_monty_hall-paradoxon_kapcsan</link>
+            Megoldás forrása:
         </para>
         <para>
-            Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/MontyHall_R">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/MontyHall_R</link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/mh.r"> A Monty Hall probléma megoldása. </link>
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Maga a Monty Hall probléma egy paradoxon, amelyben feltétel szerint van egy játékos, egy műsorvezető és a játékosnak három ajtó közül kell választania, amelyekből csak az egyik rejti a nyereményt. Miután a játékos választott egy ajtót, a műsorvezető kinyit egy olyan ajtót ami mögött nincs nyeremény, mivel hogy ő tudja melyik ajtó mit rejt. Ezek után megkérdezi a játékost, hogy szeretne-e a választásán módosítani, és ekkor jön a lényeg. A probléma azt tartalmazza, hogy a változtatással megnő a győzelem esélye 1/3-ról 2/3-ra. Ez azért van, mert azt feltételezzük, hogy a műsorvezető az általunk nem választott két ajtó közül, azért azt nyitotta ki, amelyiket, mert a másik mögött van a jutalom. A programunk úgy épül fel, hogy először is meghatározzuk a kísérletek számát, ami bármennyi lehet, majd létrehozzuk a kísérletek és a játékosok nevű változót, ami tartalmazza a választások számát egytől háromig, és a replace=T-vel pedig engedélyezzük, hogy a tippek száma többször is előfordulhasson a kísérletek során. A műsorvezető pedig a kísérletek számával lesz megadva. Egy for ciklussal megyünk végig a kísérleteken, ebbe viszont implementálnunk kell egy if elágazásokkal vizsgáljuk ki a választásokal. Az első if-ben a nyertes lehetőség értéke megegyezik a játékos tippjével, ekkor a műsorvezető a három lehetőségből kivonja a kísérlet értékét.Más esetben pedig, amikor nem találja el egyből a győztes ajtót, akkor a három lehetőségből kivonja a tippet és ami mögött a nyeremény van. Végül pedig kiírja az így kapott értéket. Következőnek pedig meghatározzuk, hogy változtat-e a játékos vagy nem. A nem esetén megegyezik a kísérlet a játékos tippjével. Ha pedig változtat, akkor egy for ciklussal kiválasztjuk azt, ami nem az eredeti választás, és nem is a műsorvezető által nyitott ajtó. A program pedig a kísérletek számának kiíratásával, a nem vátoztatással való nyereség és a változtatással való nyereség hányadosát, és a kísérletek számához való összes nyereség számát.
         </para>
     </section>
 
