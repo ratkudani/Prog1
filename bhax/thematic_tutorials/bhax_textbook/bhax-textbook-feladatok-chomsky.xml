@@ -11,13 +11,13 @@
             Állapotátmenet gráfjával megadva írd meg ezt a gépet!
         </para>
         <para>
-            Megoldás videó:
-        </para>
-        <para>
             Megoldás forrása:                
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/unaris.c"> Unárisba váltó Turing gép</link> 
+        </para>
+        <para>
+            A feladat lényege, hogy egy olyan programot hozzunk létre, ami a tízes számrendszerből, azaz decimálisból váltsunk át egyes számrendszerre, azaz unárisba pozitív egész számokat. Először is meghívjuk az alap könvtárakat, majd deklarálunk két integer változót. Bekérünk egy egész számot, amit egy for ciklussal alakítunk át. Ami megy sorra, és húzza a vonalakat, majd ha a szám öttel osztható lesz maradék nélkül, akkor egy szóközt helyez le.
         </para>
     </section>        
         
@@ -45,13 +45,13 @@
             Majd mutass be olyan kódcsipeteket, amelyek adott szabvánnyal nem fordulnak (például C89), mással (például C99) igen.
         </para>
         <para>
-            Megoldás videó: 
-        </para>
-        <para>
             Megoldás forrása:  
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/nyelvszabvany.c"> Nyelvi szabvány</link> 
+        </para>
+        <para>
+            (A feladat megoldásában Pankotai Kristóf.) A program a két nyelvi keret változását mutatja be. A C99 szabvány egyik legjelentősebb újítása az volt, hogy a felhasználó immáron képes a C++ nyelv típusú kommentelését használni. 
         </para>
     </section>                     
 
@@ -63,29 +63,29 @@
             a feladat lényege, hogy lexert használjunk, azaz óriások vállán álljunk és ne kispályázzunk!
         </para>
         <para>
-            Megoldás videó: 
+            Megoldás forrása: 
         </para>
         <para>
-            Megoldás forrása:  
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/realnumber.l"> Saját lexikális elemző</link> 
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Ez a program a lefuttatása során egy másik programot állít elő. A lefuttatás menete: lex -o program.c program.l . A C-s programuk fordításánál pedig szükség van a végére illeszteni egy -lfl tag-et. A működési elve az, hogy az L nyelv lexelve létrehozza azt a C programot, amely egy komplex karaktersorból kitudja szűrni a valós számokat. A programot a két dupla % (százalékjel) szedi három részre. Az első harmada tartalmazza a C programba kerülő részt. A középső része tartalmazza a szabályrendszert, és a C-s ciklust. A végső harmadban pedig a komplett main rész van implementálva.
         </para>
     </section>                     
 
     <section>
-        <title>l33t.l</title>
+        <title>Leetspeak</title>
         <para>
             Lexelj össze egy l33t ciphert!
         </para>
         <para>
-            Megoldás videó: 
+            Megoldás forrása: 
         </para>
         <para>
-            Megoldás forrása:  
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/l337d1c7.l"> Saját l33t chiper</link> 
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            A programunk az L felépítés során, egy másik C forrást hoz létre, melyet a -lfl parancssal kell lefordítani. A kódsor lényege, hogy a betű- és számkészletünkhoz rendel hasonló karaktereket, melyet a futás során kicserél. Ezt úgy éri el, hogy minden betűhöz és számhoz hozzárendel egy négy tagú mátrixot, amelyben jelöljük az általunk vélt megfelelő hasonmás karaktereket.
         </para>
     </section>                     
 
@@ -144,15 +144,31 @@
             </listitem>
         </orderedlist>
         <para>
-            Megoldás forrása:  
+           i. -> Azt jelenti, ha eddig nem volt figyelmen kívül helyezve a SIGINT jel, akkor a jelkezelő függvény kezelje. Fordított esetben hagyjuk figyelmen kívül.
         </para>
-
         <para>
-            Megoldás videó: 
+            ii. -> Adott egy for ciklus, amelyben az i értékét növeljük egyesével, amíg az értéke eléri a négyet.
         </para>
-
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            iii. -> Ez megegyezik az előzővel, ugyanis for ciklusban nem lesz más értéke, csak a feldolgozás ideje különbözik a két megadott növelési formánál.
+        </para>
+        <para>
+            iv. -> Ez egy hibás program, mert egy időben deklaráljuk az i-t és hivatkozunk rá tömbként. A végrehajtás sorrendjében van a hiba, mert a sorrendiség nem helyes, nem ismerjük.
+        </para>
+        <para>
+            v. -> 
+        </para>
+        <para>
+            vi. ->
+        </para>
+        <para>
+            vii. ->
+        </para>
+        <para>
+            viii. ->
+        </para>
+        <para>
+            A feladat teljes megoldása még kidolgozás alatt, mert nem teljesen értem a további függvényeket.
         </para>
 
     </section>                     
@@ -173,13 +189,23 @@ $(\exists y \forall x (y<x) \supset \neg (x \text{ prím}))$
         <para>
             Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/blob/master/attention_raising/MatLog_LaTeX">https://gitlab.com/nbatfai/bhax/blob/master/attention_raising/MatLog_LaTeX</link>
         </para>
-
         <para>
-            Megoldás videó: <link xlink:href="https://youtu.be/ZexiPy3ZxsA">https://youtu.be/ZexiPy3ZxsA</link>, <link xlink:href="https://youtu.be/AJSXOQFF_wk">https://youtu.be/AJSXOQFF_wk</link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/matlog.tex">Matlag</link> 
         </para>
-
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            A feladat megértéséhez először is szükségünk van az elsőrendű logika ismeretére, ugyanis az adott példa alapján, ez négy logikai állításból áll. A legfontosabb megérteni az alap kifejezéseket. A foreall jelzi az univerzális kvantort, azaz a bármely-bármelyik, az exist, a létezik kifejezést jelöli. A wedge az implikáció és a supset pedig a konjukció és a neg pedig a negált.. A program pedig AR nyelven íródott. 
+        </para>
+        <para>
+            I. -> Bármely x esetén létezik olyan y, amelynél ha x kisebb, akkor y prím szám lesz.
+        </para>
+        <para>
+            II. -> Bármely x esetén létezik olyan y, amelynél ha x kisebb, akkor y prím szám lesz, és ha y prím szám, akkor annak második utánai is prím szám lesz.
+        </para>
+        <para>
+            III. -> Létezik olyan y, amelynél bármely x esetén az x prím ,és x kisebb, mint y.
+        </para>
+        <para>
+            IV. -> Létezik olyan y, amelynél bármely y kisebb x esetén az x nagyobb, és x nem prím.
         </para>
     </section>                                                                                                                                                                            
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
@@ -223,7 +249,7 @@ $(\exists y \forall x (y<x) \supset \neg (x \text{ prím}))$
             </listitem>            
         </itemizedlist>            
 
-       <para>
+        <para>
             Mit vezetnek be a programba a következő nevek?
         </para>
 
@@ -267,6 +293,102 @@ $(\exists y \forall x (y<x) \supset \neg (x \text{ prím}))$
         <para>
             Megoldás forrása:  
         </para>
+        <para>
+            Az utolsó két deklarációs példa demonstrálására két olyan kódot
+            írtunk, amelyek összahasonlítása azt mutatja meg, hogy miért 
+            érdemes a <command>typedef</command> használata: <link xlink:href="Chomsky/fptr.c">
+                <filename>bhax/thematic_tutorials/bhax_textbook_IgyNeveldaProgramozod/Chomsky/fptr.c</filename>
+            </link>,
+            <link xlink:href="Chomsky/fptr2.c">
+                <filename>bhax/thematic_tutorials/bhax_textbook_IgyNeveldaProgramozod/Chomsky/fptr2.c</filename>.
+            </link>  
+            
+        </para>
+        <programlisting><![CDATA[#include <stdio.h>
+
+int
+sum (int a, int b)
+{
+    return a + b;
+}
+
+int
+mul (int a, int b)
+{
+    return a * b;
+}
+
+int (*sumormul (int c)) (int a, int b)
+{
+    if (c)
+        return mul;
+    else
+        return sum;
+
+}
+
+int
+main ()
+{
+
+    int (*f) (int, int);
+
+    f = sum;
+
+    printf ("%d\n", f (2, 3));
+
+    int (*(*g) (int)) (int, int);
+
+    g = sumormul;
+
+    f = *g (42);
+
+    printf ("%d\n", f (2, 3));
+
+    return 0;
+}]]></programlisting>            
+        <programlisting><![CDATA[#include <stdio.h>
+
+typedef int (*F) (int, int);
+typedef int (*(*G) (int)) (int, int);
+
+int
+sum (int a, int b)
+{
+    return a + b;
+}
+
+int
+mul (int a, int b)
+{
+    return a * b;
+}
+
+F sumormul (int c)
+{
+    if (c)
+        return mul;
+    else
+        return sum;
+}
+
+int
+main ()
+{
+
+    F f = sum;
+
+    printf ("%d\n", f (2, 3));
+
+    G g = sumormul;
+
+    f = *g (42);
+
+    printf ("%d\n", f (2, 3));
+
+    return 0;
+}
+]]></programlisting>            
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>

@@ -58,4 +58,20 @@
             A Helló, Turing csokor befejezése és a Helló, Chomsky feladatcsokor átfutása.
         </revremark>
     </revision>
+    <revision>
+        <revnumber>0.0.8</revnumber>
+        <date>2019-03-08</date>
+        <authorinitials>ratku.dani</authorinitials>
+        <revremark>
+            A Helló, Chomsky feladat csokor megkezdése, és a github frissítése.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.0.9</revnumber>
+        <date>2019-03-08</date>
+        <authorinitials>ratku.dani</authorinitials>
+        <revremark>
+            A Helló, Chomsky csokor befejezése, és a teljes feladatsor feltöltése githubra.
+        </revremark>
+    </revision>
 </revhistory>
