@@ -288,109 +288,13 @@ $(\exists y \forall x (y<x) \supset \neg (x \text{ prím}))$
 
 
         <para>
-            Megoldás videó: 
-        </para>
-        <para>
             Megoldás forrása:  
         </para>
         <para>
-            Az utolsó két deklarációs példa demonstrálására két olyan kódot
-            írtunk, amelyek összahasonlítása azt mutatja meg, hogy miért 
-            érdemes a <command>typedef</command> használata: <link xlink:href="Chomsky/fptr.c">
-                <filename>bhax/thematic_tutorials/bhax_textbook_IgyNeveldaProgramozod/Chomsky/fptr.c</filename>
-            </link>,
-            <link xlink:href="Chomsky/fptr2.c">
-                <filename>bhax/thematic_tutorials/bhax_textbook_IgyNeveldaProgramozod/Chomsky/fptr2.c</filename>.
-            </link>  
-            
-        </para>
-        <programlisting><![CDATA[#include <stdio.h>
-
-int
-sum (int a, int b)
-{
-    return a + b;
-}
-
-int
-mul (int a, int b)
-{
-    return a * b;
-}
-
-int (*sumormul (int c)) (int a, int b)
-{
-    if (c)
-        return mul;
-    else
-        return sum;
-
-}
-
-int
-main ()
-{
-
-    int (*f) (int, int);
-
-    f = sum;
-
-    printf ("%d\n", f (2, 3));
-
-    int (*(*g) (int)) (int, int);
-
-    g = sumormul;
-
-    f = *g (42);
-
-    printf ("%d\n", f (2, 3));
-
-    return 0;
-}]]></programlisting>            
-        <programlisting><![CDATA[#include <stdio.h>
-
-typedef int (*F) (int, int);
-typedef int (*(*G) (int)) (int, int);
-
-int
-sum (int a, int b)
-{
-    return a + b;
-}
-
-int
-mul (int a, int b)
-{
-    return a * b;
-}
-
-F sumormul (int c)
-{
-    if (c)
-        return mul;
-    else
-        return sum;
-}
-
-int
-main ()
-{
-
-    F f = sum;
-
-    printf ("%d\n", f (2, 3));
-
-    G g = sumormul;
-
-    f = *g (42);
-
-    printf ("%d\n", f (2, 3));
-
-    return 0;
-}
-]]></programlisting>            
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/declar.c">A feladatok deklarálva</link>
+        </para>         
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            A feladat megoldásában más segített, tutorált, de még így sem értem igazán, szóval majd befejezem.
         </para>
     </section>                     
 
