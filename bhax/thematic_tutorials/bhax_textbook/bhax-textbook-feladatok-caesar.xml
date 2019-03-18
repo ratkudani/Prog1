@@ -6,19 +6,21 @@
         </keywordset>
     </info>
     <section>
-        <title><type>int ***</type> háromszögmátrix</title>
+        <title><type>double **</type> háromszögmátrix</title>
         <para>
-           
+            Írj egy olyan <function>malloc</function> és <function>free</function>
+            párost használó C programot, amely helyet foglal
+            egy alsó háromszög mátrixnak a szabad tárban!
         </para>
         <para>
-            Megoldás videó:
+            Megoldás forrása:  
         </para>
         <para>
-            Megoldás forrása:                
+        <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/dmatrix.c">Mátrix megoldása</link> 
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
-        </para>            
+            A programunk egy négyzetes mátrixról szó, amelynek a fő tulajdonsága az, hogy oszlopainak és sorainak száma megegyezik, és a főátlója alatt csupa nullákat kapunk, bár a kódunkban majd az átló alatti rész lesz csupa nulla. Először is deklaráljuk a két fő válrozónkat, ami a sorok száma lesz, és a tm mutatót, ami double típusú. Az if-ben szereplő részt megírva, a tm változó eredménye a malloc paranccsal megkapott tárterületet, ami a sor, szorozva 8 bájtnyi mérettel rendelkezik. A malloc-ot rá lehet kényszeríteni, hogy bármit visszaadjon, mert alapesetben void*-ot adna vissza. Ezután vizsgáljuk, hogy a malloc tud-e egyáltalán területet foglalni, mert ha nem, akkor a return -1-e visszaugrunk a program elejére. További kidolgozás alatt.
+        </para>          
     </section>        
     <section>
         <title>C EXOR titkosító</title>
@@ -26,13 +28,16 @@
             Írj egy EXOR titkosítót C-ben!
         </para>
         <para>
-            Megoldás videó:
-        </para>
-        <para>
             Megoldás forrása:                
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+        <link xlink:href="https://sourceforge.net/p/udprog/code/ci/master/tree/source/labor/exor/eClean.c">C Exor feladat. </link> 
+        </para>
+        <para>
+        <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/eClean.c">C Exor feladat github-on. </link> 
+        </para>
+        <para>
+            Ez a feladat a titkosításról szól, melynek a kulcsa az EXOR, azaz a kizáró vagy logikai elem. A program működéséhez szükségünk van, egy bárki által elkészített szöveget tartalmozó fájlra, mondjuk egy txt-re, amit majd a program átkódol az általunk meghatározott kulccsal, ami egy nyolc karakteres sztringként lesz kezelve, ami azért fontos, mert a vissza kódoláshoz is ekkora hosszúságú kulcs kell, amivel majd a későbbiekben dekódolni is tudjuk. Maga a forrásnak a megírását a kulcs méretének és a buffer méretének meghatározásával kezdjük, amelyek konstansok lesznek. A main-be deklarálnunk kell a kulcs és a buffer tömböket, amik a szükséges kulcsot és az eredményt tárolják. A deklarált két int, a a kulcsunk aktuális részét/elemét mutatja, amivel végbe megy majd a művelet, és a második pedig, a beolvasott bájtoknak az összegét mondja meg. A harmadik int, azaz a kulcs_meret során használjuk strlen és a strncpy függvényekre, amelyeknek a lényege, hogy lerögzíti a hosszát stringben, amíg a ncpy pedig a végső másolatát rögzíti szintén stringben. Ezután egy végső while és for ciklussal folyamatosan olvasunk a bemenetről, és tároljuk a beolvasottakat a bufferben, amíg már nem tudunk több mindent beolvasni. Ekkor a ciklusban az olvasó 0 értéket ad vissza, amivel a program véget ér. A program megírása után a gcc-vel lefordítom, majd a futtatáshoz a ./programneve kulcs <![CDATA[<a szöveges fájl, amiből kódolunk>]]> "a fájl, amibe a titkosított szövegrészlet kerül bele". 
         </para>            
     </section>        
     <section>
@@ -41,28 +46,31 @@
             Írj egy EXOR titkosítót Java-ban!
         </para>
         <para>
-            Megoldás videó:
+            Megoldás forrása:              
         </para>
         <para>
-            Megoldás forrása:                
+        <link xlink:href="https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html"> Ezen az oldalon taláható meg a megoldás. </link> 
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Ebben az esetben ugyan azt akarjuk elérni, mint a C nyelvű titkosító helyzetében. Azaz hogy az általunk, vagy a felhasználó által meghatározótt kulccsal egy szintén saját választott szöveges dokumentumot kódolunk le. A szerkezete és működése ezáltal azonos lesz, az előbb említett nyelvben megírt társával. Fordítani a javac programneve.java . Majd a program futtatásához a köverkező kell: java programneve kulcs <![CDATA[> titkosított.szöveg]]> .
         </para>            
     </section>        
-    <section>
+    <section xml:id="bhax-textbook-feladatok-caesar.EXOR-toro">
         <title>C EXOR törő</title>
         <para>
             Írj egy olyan C programot, amely megtöri az első feladatban előállított titkos szövegeket!
         </para>
         <para>
-            Megoldás videó:
-        </para>
-        <para>
             Megoldás forrása:                
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+        <link xlink:href="https://sourceforge.net/p/udprog/code/ci/master/tree/source/labor/exor/tClean.c">C Exor törés. </link> 
+        </para>
+        <para>
+        <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/tClean.c">C Exor törés github-on. </link> 
+        </para>
+        <para>
+            Ez a program, az előbb megcsinált kódoló programunk által legenerált szöveges fájlt tudja dekódolni az általunk előzőleg megadott kulccsal, amely nyolc karakterből álló szting. A program alapvető definiálásból indul, ami a maximális szöveg terjedelmet, a bájtokban mért memória tárolást, a kulcs méretét, ami megint csak az említett nyolc karakterből álló sztring lehet, és végűl a szabadszoftverű operációs rendszerforrást. Ezek után az első változónk, az átlagos szóhossz, amit a beleimplementált for ciklussal a szóközök segítségével számítunk ki. Ebben az esetben az "sz" változó, a szóközök számát jelenti. A számítás végén a return utasítással úgy adjuk vissza az értéket, hogy elosztjuk a hosszúságot a szóközök megszámlált értékével. A következő szegmens a szöveg tisztaságának vizsgálata, amivel csökkentjük a törések potenciálját. A középső komponens maga az exor része lesz, amiben a for ciklussal bájtonként hajtkuk végre a műveletet. A benne levő "%" jel által lesz a kulcs mindig aktuális. Az elkövetkezendő részlet pedig a törés végrehajtása lesz. Ehhez be kell olvasni a titkos fájlt, amit egy while ciklussal érünk el addig, amíg csak van adat, ha már nincs, akkor a read 0 értékkel tér vissza, és leáll az utasítás. A rengeteg egybeágyazott for ciklussal elérjük, hogy az összes lehetséges kulcs álljon elő. Végül, ha sikerül az exortörés, kiírjuk a kulccsal a tiszta szöveget. A lefordítása alapesetű, és a futtatása megegyezik a titkosító programéval. 
         </para>            
     </section>        
     <section>
@@ -77,7 +85,7 @@
             Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/NN_R">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/NN_R</link>               
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Még nem látom át igazán a programot, de kidolgozás alatt áll.
         </para>            
     </section>        
     <section>
@@ -86,13 +94,13 @@
             C++
         </para>
         <para>
-            Megoldás videó:
+            Megoldás videó: <link xlink:href="https://youtu.be/XpBnR31BRJY">https://youtu.be/XpBnR31BRJY</link>
         </para>
         <para>
-            Megoldás forrása:                
+            Megoldás forrása: <link xlink:href="https://github.com/nbatfai/nahshon/blob/master/ql.hpp#L64">https://github.com/nbatfai/nahshon/blob/master/ql.hpp#L64</link>               
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Ez a feladat is kidolgozás alatt áll, a teljes szövegkitöltéssel még várok amíg teljes nem lesz.
         </para>            
     </section>        
         

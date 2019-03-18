@@ -74,4 +74,28 @@
             A Helló, Chomsky csokor befejezése, és a teljes feladatsor feltöltése githubra.
         </revremark>
     </revision>
+    <revision>
+        <revnumber>0.1.0</revnumber>
+        <date>2019-03-15</date>
+        <authorinitials>ratku.dani</authorinitials>
+        <revremark>
+            A Helló, Caesar feladatok elkezdése.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.1.1</revnumber>
+        <date>2019-03-17</date>
+        <authorinitials>ratku.dani</authorinitials>
+        <revremark>
+            A Helló, Caesar csokor felének a kidolgozása.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.1.2</revnumber>
+        <date>2019-03-18</date>
+        <authorinitials>ratku.dani</authorinitials>
+        <revremark>
+            A Helló, Caesar feladatcsokor majdnem teljes elkészítése.
+        </revremark>
+    </revision>
 </revhistory>
