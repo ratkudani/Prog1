@@ -5,30 +5,71 @@
             <keyword/>
         </keywordset>
     </info>
-    <section>
+    <section xml:id="bhax-textbook-feladatok-mandelbrot.Mandelbrot">
         <title>A Mandelbrot halmaz</title>
         <para>
-                
+            Írj olyan C++ programot, amely kiszámolja a Mandelbrot halmazt!     
         </para>
         <para>
-            Megoldás videó:
+            Megoldás forrása:              
+        </para>
+	<para>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/mandelbrot.cpp">Mandelbrot halmaz kiszámolása.</link>               
         </para>
         <para>
-            Megoldás forrása:                
+	Mielőtt a feladatban szereplő halmazzal dolgoznánk, tisztáznunk kell, hogy
+            mi az a fraktál, és milyen kapcsolatban állnak a Mandelbrot-halmazzal. A
+            fraktálok lényegében olyan alakzatok, melyek végtelenül komplexek.
+            Két fő tulajdonságuk van, az egyik, hogy a legtöbb geometria alakzattal
+            ellentétben a fraktálok szélei "szakadozottak", nem egyenletesek. A 
+            másik tulajdonságuk pedig, hogy nagyon hasonlítanak egymásra. Ha egy 
+            kör határfelületét folyamatosan nagyítjuk, egy idő után kisimul(a
+            csúcsokat leszámítva), megkülönböztethetetlenné válik egy egyenestől.
+            Ezzel szemben a fraktálok első tulajdonsága, mi szerint határfelöletük
+            szakadozott, megmarad, függetlenül a nagyítás mértékétől.
+            A Mandelbrot halmaz is a fraktálok közé tartozik. Ezt és a hozzá 
+            tartozó szabályt Benoit Mandelbrot fedezte fel 1979-ben. A halmaz
+            komplex számokból áll, és az ezekből álló sorozat konvergens, azaz korlátos. Ezeket a 
+            számokat ábrázolva a komplex számsíkon kapjuk meg a Mandelbrot-halmaz
+            híres farktálját.
         </para>
+
     </section>        
         
     <section>
         <title>A Mandelbrot halmaz a <filename>std::complex</filename> osztállyal</title>
         <para>
-                
-        </para>
-        <para>
-            Megoldás videó:
+            Írj olyan C++ programot, amely kiszámolja a Mandelbrot halmazt!                     
         </para>
         <para>
             Megoldás forrása:                
         </para>
+        <para>        
+	<link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/mandelbrotcomplex.cpp">Mandelbrot halmaz std::complex osztállyal.</link>
+        </para>
+      	<para>
+	Az előző feladatot fogjuk megoldani, csak most egy kicsit másképpen. Ahogy láttad,
+            az előbb a komplex számokat két változóban tároltuk, egyikben a valós, ,másikban
+            pedig a képzetes részét. De az infromatikusok lusták, mindek használnánk 2
+            változót, ha lehet egyet is. Ezt teszi számunkra lehetőve a <function>complex</function>
+            library, melynek segítségével a gép képes kezelni ezeket a számokat. Na itt néhány dolog eltér az előző feladathoz képest. Itt használjuk elsőnek
+        a complex típust, ami <function>double</function>-ket tartalmaz, és két
+        részből áll, a valós és az imaginárius részből. Ennek a segítségével
+        definiáljuk a c és a z_n változókat. Majd, innen már ismerős lehet, 
+        kiszámoljuk minden c esetén a z_n-eket, és ha elérjük az iterációs határt
+        akkor, tudhatjuk, hogy az iteráció konvergens.
+        Ebből következik, hogy
+        a c eleme a Mandelbrot halmaznak.  A while fejrészében 
+        látható <function>abs()</function> függvény az abszolút értékét adja meg
+        az bemenetként kapott argumentumának. A halmazt lértehozó sorozat
+        képzési szabálya egy az egyben beírható a programba, nincs szükség
+        semmilyen szétbontásra, mint az előző programnál volt, köszönhetően
+        annak, hogy képesek vagyunk kezelni a komplex számokat. 
+        Pusz dolog, hogy a a program a futása 
+        azt is látjuk, hogy hány százalékát végezte el a számításoknak a gép. 
+        Végezetül pedig itt is kiírjuk a png fájlt a parancssori argumnetumként 
+        megadott fájlba a <function>write</function> segítségével.
+	</para>
     </section>        
                 
     <section>
@@ -36,50 +77,85 @@
         <para>
         </para>
         <para>
-            Megoldás videó: <link xlink:href="https://youtu.be/IJMbgRzY76E">https://youtu.be/IJMbgRzY76E</link>
+            Megoldás forrása:
         </para>
         <para>
-            Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/Biomorf">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/Biomorf</link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/biomorf.cpp">Biomorfok</link>
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
-        </para>                        
+            A biomorfokra Clifford Pickover talált rá, aki a természet egyik törvényének a feldedezésének hitte ezt a jelenséget. Ezt Julia halmaznak is nevezzük. A két halmaz között a különbség, hogy a Mandelbrot során a c egy változó, amíg a biomorfok esetén egy állandót alkot majd, azaz a z vizsgálatai során, ugyan az marad.
+        </para>                                 
     </section>                     
 
     <section>
         <title>A Mandelbrot halmaz CUDA megvalósítása</title>
         <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/gvaqijHlRUs">https://youtu.be/gvaqijHlRUs</link>
         </para>
         <para>
-            Megoldás videó: 
-        </para>
-        <para>
-            Megoldás forrása:  
+            Megoldás forrása:                
+            <link xlink:href="../../../bhax/attention_raising/CUDA/mandelpngc_60x60_100.cu">
+                <filename>bhax/attention_raising/CUDA/mandelpngc_60x60_100.cu</filename>
+            </link> nevű állománya.            
         </para>
     </section>                     
 
     <section>
         <title>Mandelbrot nagyító és utazó C++ nyelven</title>
         <para>
+        </para>
+        <para>
             Építs GUI-t a Mandelbrot algoritmusra, lehessen egérrel nagyítani egy területet, illetve egy pontot
             egérrel kiválasztva vizualizálja onnan a komplex iteréció bejárta z<subscript>n</subscript> komplex számokat!
         </para>
-            
         <para>
-            Megoldás forrása:  
-        </para>
-
-        <para>
-            Megoldás videó: 
+            Megoldás forrása:
         </para>
         <para>
-            Megoldás forrása:  
+            <link xlink:href="">Mandelbrot nagyító és utazó C++ nyelven.</link>
         </para>
     </section>                     
-                                                                                                                                                                            
+        <para>
+                Telepíteni: sudo apt-get install libqt4-dev
+        </para>
+        <para>
+            A program a QT GUI-t használja, ennek segítségével tudjuk elkészíteni a 
+            Mandelbrot halmazt beutazó programunkat. Ez a GUI az egyik legertejedtebb
+            garfikus interfésze a C++-nak, rengeteg tutorial van róla fent a neten.  
+        </para>
+        <para>
+                Fordítás:
+                Az szükséges 4 fájlnak egy mappában kell lennie. A mappában futtatni
+                kell a <function>qmake -project</function> parancsot. Ez létre fog
+                hozni egy <function>*.pro</function> fájlt. Ebbe a fájlba be kell
+                írni a következőt: <function>QT += widgets</function> sort. Ezután futtatni kell
+                a <function>qmake *.pro</function>.
+                Ezután lesz a mappában
+                egy <function>Makefile</function>, ezt kell majd használni. Ki 
+                adjuk a <function>make</function> parancsot, mely létrehoz 
+                egy bináris fájlt. Ezt pedig a szokásos módon futtatjuk.
+            
+            
+        
+            Rengeteg figyelmeztetést ad vissza, de ezzel most nem kell törődni, hiszan a bináris fájl
+            elkészült, melyet futtatunk, és elindul az utazásunk a végtelenbe.
+            
+            Ahhoz, hogy részletesebb képet kapj a ránagyított területről, az "n" billentyűt
+            kell lenyomnod, mely kiszámolja a z-ket a megadott területen. Itt lehet látni, hogyan
+            mosósdik össze a Mandelbrot és a Biomorfos téma. A hatmadik kép, már majdnem olyan, mint
+            egy biomorf.
+        </para>
+                                                                                                                                                                   
     <section>
         <title>Mandelbrot nagyító és utazó Java nyelven</title>
         <para>
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/Ui3B6IJnssY">https://youtu.be/Ui3B6IJnssY</link>, 4:27-től.
+            Illetve <link xlink:href="https://bhaxor.blog.hu/2018/09/02/ismerkedes_a_mandelbrot_halmazzal">https://bhaxor.blog.hu/2018/09/02/ismerkedes_a_mandelbrot_halmazzal</link>.
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apbs02.html#id570518">https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apbs02.html#id570518</link>
         </para>
     </section>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
