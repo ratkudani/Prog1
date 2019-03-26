@@ -2,7 +2,7 @@
 <book xmlns="http://docbook.org/ns/docbook" 
       xmlns:xlink="http://www.w3.org/1999/xlink" 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      version="5.0" xml:lang="hu">    
+      version="5.1" xml:lang="hu">    
     
     <xi:include href="bhax-textbook-fdlinfo.xml">
         <xi:fallback>

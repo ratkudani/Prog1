@@ -97,10 +97,22 @@
             Megoldás videó: <link xlink:href="https://youtu.be/XpBnR31BRJY">https://youtu.be/XpBnR31BRJY</link>
         </para>
         <para>
-            Megoldás forrása: <link xlink:href="https://github.com/nbatfai/nahshon/blob/master/ql.hpp#L64">https://github.com/nbatfai/nahshon/blob/master/ql.hpp#L64</link>               
+            Megoldás forrása:            
         </para>
         <para>
-            Ez a feladat is kidolgozás alatt áll, a teljes szövegkitöltéssel még várok amíg teljes nem lesz.
+            <link xlink:href="https://github.com/DonatPataki/University/blob/master/prog1/perceptron.cpp"> Visszaterjesztés.</link>
+        </para>
+        <para>
+            (A feladat megoldásában Dicső tutorom, Pataki Donát segített)
+        </para>
+        <para>
+            A perceptron nem más mint egy algoritmus model, ami az emberi agy muködését próbálja utánozni. Hason-
+ló a neurális hálóhoz azonban van pár különbség. Ugyanúgy input után elkezd varázsolni és jobb esetben
+
+és megfelelo mintavétel után helyes eredményt ad vissza. Azonban a közbelső értékeknek van súlya amit  ̋
+még adott konstansokkal is ki lehet egészíteni. Az így kapott súlyokat összeadja és ha ez elér egy bizonyos
+szintet, akkor a program adott része aktiválódik. És egy a lineáris folyamat ismétlodik amíg el nem jut a  ̋
+válaszig.
         </para>            
     </section>        
         

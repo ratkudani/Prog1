@@ -79,5 +79,12 @@
         </xi:fallback>
     </xi:include>     
     
+    <xi:include href="bhax-textbook-feladatok-gutenberg.xml">
+        <xi:fallback>
+            <para>
+                <emphasis>XInclude: bhax-textbook-motto.xml file not found</emphasis>
+            </para>
+        </xi:fallback>
+    </xi:include>     
             
 </part>  

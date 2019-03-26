@@ -14,6 +14,7 @@
             Megoldás forrása:                
         </para>
         <para>
+            <link xlink:href="https://github.com/pkristof1999/prog1/blob/master/Feladatok/turing.png">Ábra a feladathoz.</link>
             <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/unaris.c"> Unárisba váltó Turing gép</link> 
         </para>
         <para>
@@ -33,8 +34,32 @@
             Megoldás forrása:                
         </para>
         <para>
-            Még a feladat megoldás alatt. Nem igazán értem, de a tutorom már megvan, aki segít elkészíteni.
+            (A feladat megoldása során a Dicső mentorom, Pataki Donát volt)
         </para>
+            <para>
+            Első: ̋
+            S (S → aXbc)
+            aXbc (Xb → bX) 
+            abXc (Xc → Ybcc)
+            abYbcc (bY → Yb)
+            aYbbcc (aY → aa)
+            aabbcc
+            </para>
+            <para>
+            Második:
+            S (S → aXbc)
+            aXbc (Xb → bX)
+            abXc (Xc → Ybcc)
+            abYbcc (bY → Yb)
+            aYbbcc (aY -> aaX)
+            aaXbbcc (Xb → bX)
+            aabXbcc (Xb → bX)
+            aabbXcc (Xc → Ybcc)
+            aabbYbccc (bY → Yb)
+            aabYbbccc (bY → Yb)
+            aaYbbbccc (aY → aa)
+            aaabbbccc
+            </para>
     </section>        
                 
     <section>

@@ -113,8 +113,7 @@
         </para>
         <para>
             <link xlink:href="">Mandelbrot nagyító és utazó C++ nyelven.</link>
-        </para>
-    </section>                     
+        </para>                    
         <para>
                 Telepíteni: sudo apt-get install libqt4-dev
         </para>
@@ -145,7 +144,7 @@
             mosósdik össze a Mandelbrot és a Biomorfos téma. A hatmadik kép, már majdnem olyan, mint
             egy biomorf.
         </para>
-                                                                                                                                                                   
+    </section>                                                                                                                                                       
     <section>
         <title>Mandelbrot nagyító és utazó Java nyelven</title>
         <para>
