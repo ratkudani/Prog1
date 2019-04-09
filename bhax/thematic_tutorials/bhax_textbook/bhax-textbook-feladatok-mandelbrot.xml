@@ -90,13 +90,17 @@
     <section>
         <title>A Mandelbrot halmaz CUDA megvalósítása</title>
         <para>
-            Megoldás videó: <link xlink:href="https://youtu.be/gvaqijHlRUs">https://youtu.be/gvaqijHlRUs</link>
+            Megoldás forrása:           
         </para>
         <para>
-            Megoldás forrása:                
-            <link xlink:href="../../../bhax/attention_raising/CUDA/mandelpngc_60x60_100.cu">
-                <filename>bhax/attention_raising/CUDA/mandelpngc_60x60_100.cu</filename>
-            </link> nevű állománya.            
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/mandel.cu">CUDA megvalósítás.</link> 
+        </para>
+        <para>
+            Szokásos mandelbrot halmaz azzal a különbséggel, hogy most az nvidia által fejlesztett cuda magokat
+            használjuk. Ezek segítségével a feladatokat lehet párhuzamosítani, viszont cuda csak az nvidia grafikus
+            kártyákban található. Használható c, c++ és fortran nyelveken. Leegyszerűsítve a cuda magok olyanok
+            mint sok kis teljesítményű processzor. Valamint azóta nvidia bejelentette a cuda-x (és talán elérhetové is  ̋
+            tette) könyvtárakat, aminek segítségével különbző területeken lehet hasznosítani a cuda nyújtotta előnyöket.
         </para>
     </section>                     
 
@@ -112,7 +116,7 @@
             Megoldás forrása:
         </para>
         <para>
-            <link xlink:href="">Mandelbrot nagyító és utazó C++ nyelven.</link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/nagyito.cpp">Mandelbrot nagyító és utazó C++ nyelven.</link>
         </para>                    
         <para>
                 Telepíteni: sudo apt-get install libqt4-dev
@@ -148,13 +152,13 @@
     <section>
         <title>Mandelbrot nagyító és utazó Java nyelven</title>
         <para>
+            Megoldás forrása: 
         </para>
         <para>
-            Megoldás videó: <link xlink:href="https://youtu.be/Ui3B6IJnssY">https://youtu.be/Ui3B6IJnssY</link>, 4:27-től.
-            Illetve <link xlink:href="https://bhaxor.blog.hu/2018/09/02/ismerkedes_a_mandelbrot_halmazzal">https://bhaxor.blog.hu/2018/09/02/ismerkedes_a_mandelbrot_halmazzal</link>.
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/mandelbrot.java">Mandelbrot Java-ban.</link>
         </para>
         <para>
-            Megoldás forrása: <link xlink:href="https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apbs02.html#id570518">https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apbs02.html#id570518</link>
+            Ugyan az mint a C-s verziója csak a feladatban említett nyelvben.
         </para>
     </section>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

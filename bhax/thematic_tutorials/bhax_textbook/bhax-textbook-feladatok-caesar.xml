@@ -79,13 +79,19 @@
             R
         </para>
         <para>
-            Megoldás videó: <link xlink:href="https://youtu.be/Koyw6IH5ScQ">https://youtu.be/Koyw6IH5ScQ</link>
-        </para>
-        <para>
             Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/NN_R">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/NN_R</link>               
         </para>
         <para>
-            Még nem látom át igazán a programot, de kidolgozás alatt áll.
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/nr.r"> Neurális</link>
+        </para>
+        <para>
+            Neurális háló ahol and, or és exor kapuk vannak implementálva. Az and és or moködése magától értetődő. ̋
+            Az elobbinél ha mindkettő 1 akkor lesz az eredményük 1. Az utóbbinál pedig ha az egyik 1 akkor lesz az  ̋
+            eredményük 1. Az exor pedig nem jelent mást minthogy a két érték nem egyezik meg, tehát 0 és 1 esetén
+            lesz az eredmény 1 és ez fordított esetben is igaz. A neurális hálóról még érdemes annyit megjegyezni,
+            hogy 3 részre lehet osztani. Van az input layer, ahol megkapja az adatokat. Ezt követi egy vagy több hidden
+            layer, ahol a varázslat történik. Majd végül jön az output layer, ahol ha minden jól működik a megfelelo ̋
+            érétket kapjuk vissza.
         </para>            
     </section>        
     <section>
@@ -94,25 +100,21 @@
             C++
         </para>
         <para>
-            Megoldás videó: <link xlink:href="https://youtu.be/XpBnR31BRJY">https://youtu.be/XpBnR31BRJY</link>
-        </para>
-        <para>
             Megoldás forrása:            
         </para>
         <para>
-            <link xlink:href="https://github.com/DonatPataki/University/blob/master/prog1/perceptron.cpp"> Visszaterjesztés.</link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/perceptron.cpp"> Visszaterjesztés.</link>
         </para>
         <para>
             (A feladat megoldásában Dicső tutorom, Pataki Donát segített)
         </para>
         <para>
             A perceptron nem más mint egy algoritmus model, ami az emberi agy muködését próbálja utánozni. Hason-
-ló a neurális hálóhoz azonban van pár különbség. Ugyanúgy input után elkezd varázsolni és jobb esetben
-
-és megfelelo mintavétel után helyes eredményt ad vissza. Azonban a közbelső értékeknek van súlya amit  ̋
-még adott konstansokkal is ki lehet egészíteni. Az így kapott súlyokat összeadja és ha ez elér egy bizonyos
-szintet, akkor a program adott része aktiválódik. És egy a lineáris folyamat ismétlodik amíg el nem jut a  ̋
-válaszig.
+            ló a neurális hálóhoz azonban van pár különbség. Ugyanúgy input után elkezd varázsolni és jobb esetben
+            és megfelelo mintavétel után helyes eredményt ad vissza. Azonban a közbelső értékeknek van súlya amit  ̋
+            még adott konstansokkal is ki lehet egészíteni. Az így kapott súlyokat összeadja és ha ez elér egy bizonyos
+            szintet, akkor a program adott része aktiválódik. És egy a lineáris folyamat ismétlodik amíg el nem jut a  ̋
+            válaszig.
         </para>            
     </section>        
         

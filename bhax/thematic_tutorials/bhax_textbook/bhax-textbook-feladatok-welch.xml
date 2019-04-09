@@ -14,14 +14,16 @@
             nincs eltéve kiszámolt szám.
         </para>
         <para>
-            Megoldás videó:
-        </para>
-        <para>
             Megoldás forrása:                
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat... térj ki arra is, hogy a JDK forrásaiban a Sun programozói
-            pont úgy csinálták meg ahogyan te is, azaz az OO nemhogy nem nehéz, hanem éppen természetes neked!
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/polar.java">Első osztály java.</link>
+        </para>
+        <para>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/polar.cpp">Első osztály C++.</link>
+        </para>
+        <para>
+            A feladat megvalósítása során megalkotott programunk feladata az, hogy a polár transzformációs algoritmussal dolgozik. A program tíz alkalommal számol, és ez alapján, hogy tárol-e tag visszatérítést, akkor azt is figyelembe veszi. 
         </para>                
     </section>        
 
@@ -31,10 +33,19 @@
             Valósítsd meg C-ben az LZW algoritmus fa-építését!
         </para>
         <para>
-            Megoldás videó:
+            Megoldás forrása:                
         </para>
         <para>
-            Megoldás forrása:                
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/z3a7.cpp">Fa építés.</link>
+        </para>
+        <para>
+            A binfa egy olyan adatszerkezet, aminek csomópontjainak legfeljebb két gyereke lehet. Ezeket jobb és bal
+            gyermekként szokás hívni. Valamint a gyerekek is csomópontként működnek. Azaz a gyerekeknek is lehet-
+            nek további gyerekei, így elég komplex fákat lehet kapni végeredményül. Ezért a binfákat érdemes rekurziv
+            módon bejárni. Továbbá attól függően, hogy milyen a gyerekek eloszlása lehet egy binfa kiegyensúlyozott,  ̋
+            tökéletesen kiegyensúsolyzott stb. Ezek a tulajdonságog többnyire csak a jobb és bal oldal viszonyát nézik
+            egymáshoz. A program nem csinál mást mint a megfelelo bemenet megkapása után egy fájlba felépít egy  ̋
+            binfát.
         </para>
     </section>        
         
@@ -44,10 +55,19 @@
             Járd be az előző (inorder bejárású) fát pre- és posztorder is!
         </para>
         <para>
-            Megoldás videó:
+            Megoldás forrása:                
         </para>
         <para>
-            Megoldás forrása:                
+            <link xlink:href="https://github.com/DonatPataki/University/tree/master/prog1/bejaras">Fabejárás.</link>
+        </para>
+        <para>
+            A binfáknak három féle bejárási módja van. Ezek az inorder, preorder és postorder nevet viselik. A preorder
+            fabejárás során a gyökérből indulunk ki és előbb azok bal majd jobb oldali gyerekeit iratjuk ki. Inorder és  ̋
+            postorder során az utolsó bal oldali gyerekből indulunk ki és ha inorder kiiratás szeretnénk akkor azután a  ̋
+            gyökeret, majd a jobb oldali gyereket írjuk ki. Ha pedig ezt a sorrendet felcseréljük, azaz a bal gyerek után
+            a jobbat majd a gyökeret írjuk ki, akkor postorder bejárást kapunk. Ezeket a bejárásokat célszerű rekurzívan
+            kezelni, mivel ezek a bejárások ugyanazt csinálják és így elég egyszer megírni és csak újra meghívni a binfa
+            egy részfájára.
         </para>
     </section>        
                         
@@ -58,10 +78,14 @@
             osztálya. A gyökér csomópont legyen kompozícióban a fával!
         </para>
         <para>
-            Megoldás videó:
+            Megoldás forrása:                
         </para>
         <para>
-            Megoldás forrása:                
+            <link xlink:href="https://github.com/DonatPataki/University/tree/master/prog1/lzwbinfa">Tag a gyökér.</link>
+        </para>
+        <para>
+            Binfaépítés azzal a különbséggel, hogy a csomópont be van ágyazva a gyökérbe és ezért közvetlenűl el
+            lehet érni, mivel a csomópont a gyökér része, de lényegében teljesen ugyanaz. Ugyanaz az az alapelve, szóval ezek alapján a kifejtés a fentebb említett feladat kidolgozásában szerepel.
         </para>
     </section>        
                 
@@ -72,10 +96,16 @@
             fával!
         </para>
         <para>
-            Megoldás videó: 
+            Megoldás forrása:  
         </para>
         <para>
-            Megoldás forrása:  
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/bintree.cpp">Mutató.</link>
+        </para>
+        <para>
+            A node és a tree osztályok teljesen el vannak választva egymástól, így a fa működését úgy tudjuk
+            megvalósítani, hogy a gyökér tagod mutatóként továbbadjuk a csomópontnak és így épitjük fel a fát minden
+            egyes új csomóponttal, aminek az a nehézsége vagy különbsége, hogy ha a gyökeret akarjuk elérni, azt csak
+            a mutatón keresztűl tudjuk megtenni, de lényegében ugyanaz csak meg van bonyolítva.
         </para>
     </section>                     
 
@@ -86,10 +116,22 @@
             értékadásra alapozva!
         </para>
         <para>
-            Megoldás videó: 
+            Megoldás forrása:  
         </para>
         <para>
-            Megoldás forrása:  
+            <link xlink:href="https://github.com/DonatPataki/University/tree/master/prog1/mozgato">Mozgató szemantika.</link>
+        </para>
+        <para>
+            A mozgató konstruktor lehetővé teszi, hogy egy object érétkeit egy másikba helyezük át. Azaz jelen esetben  ̋
+            ha binfás példára nézzük, akkor a mozgató konstruktor segítségével lehetséges, hogy egy már kész binfát
+            egy másikba tegyünk, azonban így az amiből mozgattuk az értékeket üresen marad, mivel nem történik  ̋
+            más mint, hogy az értékeket más helyre pakoljuk. Előnye a másolással szemben azonban az, hogy a  ̋
+            mozgatás kevesebb erőforrást vesz igénybe mint egy teljes másolatot készíteni az egészről. A c++11 óta van  ̋
+            alapértelmezett mozgató konstruktor is, ami hasonlóan a másolóhoz nem mindig működik tökéletesen, ezért
+            lehetőség van annak működését deklarálni is. A mozgató értékadás hasonló a mozgató konsteruktorhoz,  ̋
+            azzal a különbséggel, hogy az utóbbi akkor kerűl meghívásra, ha deklarációkor adjuk meg az értéket, míg
+            a mozgató értékadás akkor, ha már egy object deklarálva lett és annak értékét később akarjuk egy másikból  ̋
+            áthelyezni.
         </para>
     </section>                     
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

@@ -12,13 +12,23 @@
             készíts UML osztálydiagramot is!
         </para>
         <para>
-            Megoldás videó: <link xlink:href="https://bhaxor.blog.hu/2018/10/10/myrmecologist">https://bhaxor.blog.hu/2018/10/10/myrmecologist</link>
+            Megoldás forrása:              
         </para>
         <para>
-            Megoldás forrása: <link xlink:href=""></link>               
+            <link xlink:href="https://github.com/ratkudani/Prog1/tree/master/Feladatok/Myrmecologist">Myrmecologist.</link>
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            A program lényegében a hanygák feromonokkal történő
+            kommunkiációját szimulálja. A .main futtatása ezzel a szegmenssel ./myrmecologist -w 250 -m 150 -n 400 -t 10 -p 5 -f 80 -d 0 -a 255 -i 3 -s 3  -c 22 -el lehet. A Kolónia (AntThread) egy QThread osztályból származtaott osztály, mivel
+            a számításokat a main threadtől, ami a GUI-t kezeli, el akarjuk különíteni,
+            így nem fagy le az Űrlapunk. Ez a Kolónia végzi a hangyák mozgatását,
+            alkalmaztatja a környezetre a hanygák által kibocsátott vegyületeket..
+            Ezekenfelül updateeli a "világot" is, lásd <varname>grid</varname>,
+            csökkenti a világ feromonszintjét. Emiatt nem mondható tiszta OOP
+            programnak a program például.  Az AntWin nyílván a világot kezeli, olyan dolgokat ad hozzá a funkcionalitáshoz,
+            mint például a világra rács rajzolása, egyes zónák a világon (cell) 
+            berajzolása és ezeken felül maga világi tartalom megjelenítése. Kezeli
+            a GUI eseményeket is amiket lekövetünk.
         </para>            
     </section>        
     <section>
@@ -28,13 +38,16 @@
             valósítsa meg a sikló-kilövőt!
         </para>
         <para>
-            Megoldás videó: 
+            Megoldás forrása:             
         </para>
         <para>
-            Megoldás forrása: <link xlink:href=""></link>               
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/gol.java">Java életjáték.</link>
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            A Conway-féle sejtautómatát kellett a feladatban elkészíteni. A program egy 2 dimenziós koordinátarendszerben dolgozik, 
+            amelyben találhatók az ún. sejtek, amelyek vagy "élő" vagy "halott", azaz vagy 0 vagy 1 sejtek. Egy véletlenszerű vagy előre meghatározott állapot
+            indítja el az életjátékot, majd több iteráció fut le (ahol minden iteráció meghatároz egy sejtet). Habár egyszerű szabályokkal
+            és akár véletlenszerűekkel is le lehet futtatni, mindig egyedi formák és viselkedéstípusok emelkednek ki a rácsból.
         </para>            
     </section>        
     <section>
@@ -43,27 +56,34 @@
             Most Qt C++-ban!
         </para>
         <para>
-            Megoldás videó: 
+            Megoldás forrása:               
         </para>
         <para>
-            Megoldás forrása: <link xlink:href=""></link>               
+            <link xlink:href="https://github.com/ratkudani/Prog1/tree/master/Feladatok/Sejtautomata">C++ életjáték.</link>
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Ugyan az a feladat mint az előzőben, csak most Qt-s környezetben C++ nyelven. Működési elve és és felépítési elve egy és ugyan az, csak a nyelvi különbségek általl található benne más jellegű szegmens.
         </para>            
     </section>        
     <section>
         <title>BrainB Benchmark</title>
         <para>
+            Megoldás forrása:             
         </para>
         <para>
-            Megoldás videó: 
+            <link xlink:href="https://github.com/ratkudani/Prog1/tree/master/Feladatok/BrainB">BrainB Benchmark.</link>
         </para>
         <para>
-            Megoldás forrása: <link xlink:href=""></link>               
-        </para>
-        <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            A BrainB Benchmark feladata az esport tehetségek felkutatása lenne,
+            úgy, hogy feltérképezi az agy kognitív képességeit, és az 
+            elért pontszámok alapján össze lehet hasonlítani az egyes 
+            egyéneket. Maga a benchmark a "karakterelvesztést" teszteli,
+            vagyis ha a játékban elveszítjük a karakterünket, mennyi ideig
+            tart megtalálnunk, és ha megtaláltuk, mennyi ideig tart elveszítenünk.
+            Ideális esetben rövidebb ideig tart megtalálnunk, mint elveszteni.
+            A program azt is figyeli, hogy az egyes karakterelvesztésekhez
+            milyen bit/sec képernyőváltások tartoznak.
+
         </para>            
     </section>        
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
