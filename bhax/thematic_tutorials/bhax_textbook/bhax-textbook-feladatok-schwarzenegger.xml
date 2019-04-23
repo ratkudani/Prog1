@@ -11,16 +11,50 @@
             Python
         </para>
         <para>
-            Megoldás videó:
+            Megoldás videó: <link xlink:href="https://youtu.be/j7f9SkJR3oc">https://youtu.be/j7f9SkJR3oc</link>      
         </para>
         <para>
-            Megoldás forrása:                
+            <link xlink:href="https://github.com/ratkudani/Prog1/tree/master/Feladatok/MNIST">MNIST</link>
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            <link xlink:href="https://github.com/tensorflow/tensorflow/releases/tag/v0.9.0">TensorFlow</link>
+        </para>
+        <para>
+            <link xlink:href="https://progpater.blog.hu/2016/11/13/hello_samu_a_tensorflow-bol">Progpater-es link</link>
+        </para>
+        <para>
+            Az MNIST egy olyan adatbázis, ahol általunk választott, azaz megadott és kézzel beírt számokat táról. Ezeket az adatokat a legtöbb esetben képfeldogozó és képeket felismerő programok szokták használni, alkalmazni. A program a feladat leírása alapján, Python magasszintű programozási nyelven íródott, amelyhez a képfelismerés miatt még szükségünk van továbbá a TensorFlow nevezetű kiegészítő programra. 
+            Az MNIST egy adatbázis, mely kézzel írott számjegyeket tartalmaz. Ezt általában képfelisemrő progra-
+            mokhoz szokták felhasználni. A programot Python nyelven fordítjuk, viszont kell hozzá még a TensorFlow
+            is, melyeket a következő sorokkal telepíthetünk:
+        </para>
+        <para>
+        A telepítés menete, hogy használni tudjuk a TensorFlow-ot a programunk futásához:
+        </para>
+        <para>
+        I. lépés -> sudo apt install python3-dev python3-pip
+        </para>
+        <para>
+        II. lépés -> sudo pip3 install -U virtualenv # system-wide install
+        </para>
+        <para>
+        III. lépés -> virtualenv --system-site-packages -p python3 ./venv
+        </para>
+        <para>
+        IV. lépés -> source ./venv/bin/activate # sh, bash, ksh, or zsh
+        </para>
+        <para>
+        V. lépés -> pip install --upgrade pip
+        </para>
+        <para>
+        VI. lépés -> pip install --upgrade tensorflow
+        </para>
+        <para>
+        Plusz az ezekből való head-öröket implementálnunk kell a programba.
         </para>
     </section>        
 
+<!--
     <section>
         <title>Szoftmax R MNIST</title>
         <para>
@@ -36,7 +70,8 @@
             Tanulságok, tapasztalatok, magyarázat...
         </para>
     </section>        
-
+-->
+    
     <section>
         <title>Mély MNIST</title>
         <para>
@@ -49,10 +84,10 @@
             Megoldás forrása:                
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Tanulságok, tapasztalatok, magyarázat... Leírás és minden nélkül a feladathoz hozzákezdeni sem tudok.
         </para>
     </section>        
-
+<!--
     <section>
         <title>Deep dream</title>
         <para>
@@ -68,19 +103,19 @@
             Tanulságok, tapasztalatok, magyarázat...
         </para>
     </section>        
-                  
+-->                  
     <section>
         <title>Minecraft-MALMÖ</title>
         <para>
         </para>
         <para>
-            Megoldás videó:
+            Megoldás videó: <link xlink:href="https://youtu.be/bAPSu3Rndi8">https://youtu.be/bAPSu3Rndi8</link>      
         </para>
         <para>
             Megoldás forrása:                
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+        A programot a Python programnyelven írtuk meg, amely a Mojang által készített Minecraft nevezetű játékához kapcsolódik. A feladat fő szegmense, hogy a játékban megtalálható karakterünknek megadunk egy általunk választott lépésszámot, ami egy bármekkora pozitív egész lehet, de a figyelem arra irányul, hogy a bábunak, azaz a karakternek nem szabad megállnia, pontosabban elakadnia sehol sem. A program működése során ugyebár végig, a haladás során beolvassuk a karakterünk körüli blokkokat (a játék kockából álló világból áll) és amíg lehet, addig egyenesen halad. Az elakadás esetén a beolvasott környezeti blokkokat elemezve azt az utat választjuk ki, amelyik hamarabb esik a keresési folyamatba. Ezt úgy vizsgáljuk meg, hogy a folyamat során a karakterünk irányától jobbra kezdjük az átvizsgálást, és az első lehetőséget kihasználva megyünk tovább előre. De mi van akkor ha ez ne működik? Akkor azt vizsgáljuk meg, hogy van e olyan blokk (ami eggyel magasabb mint a környezetünk) amire fel tudunk ugrani, és ha ilye van, akkor élünk az ebből adódó lehetőséggel. Ezzel az útkeresési és választó aktív folyamatnak hála, a karakterünk hibátlanul, elakadás mentesen tudja megtenni az általunk, a feladat elején megadott megtenni vágyott lépéseknek a számát.
         </para>
     </section>        
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
