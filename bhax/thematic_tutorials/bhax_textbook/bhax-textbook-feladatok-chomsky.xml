@@ -60,6 +60,9 @@
             aaYbbbccc (aY → aa)
             aaabbbccc
             </para>
+            <para>
+                Az egésznek az alapja a matematikai logika ismerete, amellyel megtudunk kreálni egy olyan nyelvezetet ami megoldásként szolgál és szerepel a feladat megvalósításához.
+            </para>
     </section>        
                 
     <section>
@@ -181,19 +184,19 @@
             iv. -> Ez egy hibás program, mert egy időben deklaráljuk az i-t és hivatkozunk rá tömbként. A végrehajtás sorrendjében van a hiba, mert a sorrendiség nem helyes, nem ismerjük.
         </para>
         <para>
-            v. -> 
+            v. -> Itt a ciklusunk, ami a for elmegy addig, amíg az i változó kisebb mint az n változó és érvényes visszatérített értéket nem kap. Ekkor s és d mutató lesz, ahogy a szegmensből adódóan a első adatra mutató mutató. Itt viszonk kell a két utóbb említett változó a működéshez, mert önmagában nem elég a leírt részlet.
         </para>
         <para>
-            vi. ->
+            vi. -> Kivetítjük printf-fel a függvényünket visszajövő értékét, ami az f-ből adódik. A kiértékelés sorrendje nincs megadva szabályszerűen, így nem tudja értelmezni az általunk használt programnyelv. Azaz bugos lesz.
         </para>
         <para>
-            vii. ->
+            vii. -> Megint csak a függvény visszakapott értékét írjuk ki a printf-fel. Ezt továbbítjuk az "a" nevezetű változónak. Így az "a" az f-fel fog processeket végrehajtani, ami jelen esetben csak egy koppintás, majd ezt írjuk ki.
         </para>
         <para>
-            viii. ->
+            viii. -> Kiírjuk újból a visszatérített értéket a függvényből, és itt az "f" makró lesz.
         </para>
         <para>
-            A feladat teljes megoldása még kidolgozás alatt, mert nem teljesen értem a további függvényeket.
+            A feladat teljes kidolgozása során a kötelező olvasmányok függvényelemzési részletét vettem alapúl.
         </para>
 
     </section>                     
@@ -320,6 +323,7 @@ $(\exists y \forall x (y<x) \supset \neg (x \text{ prím}))$
         </para>         
         <para>
             A feladat megoldásában más segített, tutorált, de még így sem értem igazán, szóval majd befejezem.
+            A feladat megoldása során a megint csak a kötelezően meghatározott fejezetek alapján dolgoztam ki, amelyek a deklarációs feladatforrásban találatóak meg.
         </para>
     </section>                     
 

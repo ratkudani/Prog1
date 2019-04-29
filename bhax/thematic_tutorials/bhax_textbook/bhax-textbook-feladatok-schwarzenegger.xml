@@ -115,6 +115,9 @@
             Megoldás forrása:                
         </para>
         <para>
+            <link xlink:href="https://bhaxor.blog.hu/2018/10/28/minecraft_steve_szemuvege">Minecraft-MALMÖ bhax-blog forrás</link>
+        </para>
+        <para>
         A programot a Python programnyelven írtuk meg, amely a Mojang által készített Minecraft nevezetű játékához kapcsolódik. A feladat fő szegmense, hogy a játékban megtalálható karakterünknek megadunk egy általunk választott lépésszámot, ami egy bármekkora pozitív egész lehet, de a figyelem arra irányul, hogy a bábunak, azaz a karakternek nem szabad megállnia, pontosabban elakadnia sehol sem. A program működése során ugyebár végig, a haladás során beolvassuk a karakterünk körüli blokkokat (a játék kockából álló világból áll) és amíg lehet, addig egyenesen halad. Az elakadás esetén a beolvasott környezeti blokkokat elemezve azt az utat választjuk ki, amelyik hamarabb esik a keresési folyamatba. Ezt úgy vizsgáljuk meg, hogy a folyamat során a karakterünk irányától jobbra kezdjük az átvizsgálást, és az első lehetőséget kihasználva megyünk tovább előre. De mi van akkor ha ez ne működik? Akkor azt vizsgáljuk meg, hogy van e olyan blokk (ami eggyel magasabb mint a környezetünk) amire fel tudunk ugrani, és ha ilye van, akkor élünk az ebből adódó lehetőséggel. Ezzel az útkeresési és választó aktív folyamatnak hála, a karakterünk hibátlanul, elakadás mentesen tudja megtenni az általunk, a feladat elején megadott megtenni vágyott lépéseknek a számát.
         </para>
     </section>        
