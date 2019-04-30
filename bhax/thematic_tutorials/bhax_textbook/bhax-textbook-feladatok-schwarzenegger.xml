@@ -78,13 +78,19 @@
             Python            
         </para>
         <para>
-            Megoldás videó:
-        </para>
-        <para>
             Megoldás forrása:                
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat... Leírás és minden nélkül a feladathoz hozzákezdeni sem tudok.
+            <link xlink:href="https://chromium.googlesource.com/external/github.com/tensorflow/tensorflow/+/r0.10/tensorflow/g3doc/tutorials/mnist/pros/index.md">TensorFlow weboldal a feladathoz, mint forrás</link>
+        </para>
+        <para>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/deep_MNIST_for_experts.py">TensorFlow MNIST</link>
+        </para>
+        <para>
+          Lényegbe foglalva a feladatban szereplő témát, segítségűl hívom az előbbi feladat során szerzett ismereteinket. Rövid bevezőként némi összehasonlítás során megállapíthatjuk, hogy a jelenlegi kiértékelendő koncepciónkban egy többrétegő soft mnist-et kapunk, ami ebből adódóan pontosabban végzi el a kapott műveleteket amelyeket beleimplementáltunk és meghatároztunk. Továbbá némi "hátrányt" is megfigyelhetünk, amit a megfigyeléseink során a nagyobb erőforrásigényben találhatunk meg. Ismeeretünket kiterjesztve közlendő, hogy a TensorFlow egy nagyon erős könyvtár, ami a széles skálájú számokkal dolgozik. Ezáltal is elősegítve az implementáló és tanuló mély neutrális működést.
+        </para>
+        <para>
+            Kezdésként fontos tisztázni, hogy az első két sor feltétlenül szükséges, mivel boilerplate-ként szerepel jelen esetben. Ugyanis ezáltal töltünk és olvasunk adatot atomataként. A következő pár sor fogja tartalmazni a kiszámítási gráf építését fogja lekreálni, és a futtató gráfot is. Tovább építve szükséges a Softmax Regressziós Modelt, ahol egy gyökérpontokat készítünk a bemeneti képhez és a célkimeneti osztályokhoz. Ezeket az x és y_ változókkal jelöljük. Az első változó értéke a 28*28-as pixeles MNIST-es képet jelöli. A tanulás maga a model kereteiben belül zajlik majd le. 
         </para>
     </section>        
 <!--
