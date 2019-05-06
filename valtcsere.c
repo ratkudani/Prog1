@@ -1,3 +1,5 @@
+//Program by: Pataki Donat
+
 #include <stdio.h>
 
 int main()
