@@ -1,25 +1,37 @@
 /*
- * MandelbrotHalmazNagyító.java
+ * MandelbrotHalmaz.java
  *
  * DIGIT 2005, Javat tanítok
  * Bátfai Norbert, nbatfai@inf.unideb.hu
  *
  */
 /**
- * A Mandelbrot halmazt nagyító és kirajzoló osztály.
+ * A Mandelbrot halmazt kiszámoló és kirajzoló osztály.
  *
  * @author Bátfai Norbert, nbatfai@inf.unideb.hu
  * @version 0.0.1
  */
-public class MandelbrotHalmazNagyító extends MandelbrotHalmaz {
-    /** A nagyítandó kijelölt területet bal felső sarka. */
-    private int x, y;
-    /** A nagyítandó kijelölt terület szélessége és magassága. */
-    private int mx, my;
+public class MandelbrotHalmaz extends java.awt.Frame implements Runnable {
+    /** A komplex sík vizsgált tartománya [a,b]x[c,d]. */
+    protected double a, b, c, d;
+    /** A komplex sík vizsgált tartományára feszített
+     * háló szélessége és magassága. */
+    protected int szélesség, magasság;
+    /** A komplex sík vizsgált tartományára feszített hálónak megfelelő kép.*/
+    protected java.awt.image.BufferedImage kép;
+    /** Max. hány lépésig vizsgáljuk a z_{n+1} = z_n * z_n + c iterációt?
+     * (tk. most a nagyítási pontosság) */
+    protected int iterációsHatár = 255;
+    /** Jelzi, hogy éppen megy-e a szamítás? */
+    protected boolean számításFut = false;
+    /** Jelzi az ablakban, hogy éppen melyik sort számoljuk. */
+    protected int sor = 0;
+    /** A pillanatfelvételek számozásához. */
+    protected static int pillanatfelvételSzámláló = 0;
     /**
      * Létrehoz egy a Mandelbrot halmazt a komplex sík
-     * [a,b]x[c,d] tartománya felett kiszámoló és nygítani tudó
-     * <code>MandelbrotHalmazNagyító</code> objektumot.
+     * [a,b]x[c,d] tartománya felett kiszámoló
+     * <code>MandelbrotHalmaz</code> objektumot.
      *
      * @param      a              a [a,b]x[c,d] tartomány a koordinátája.
      * @param      b              a [a,b]x[c,d] tartomány b koordinátája.
@@ -28,52 +40,80 @@ public class MandelbrotHalmazNagyító extends MandelbrotHalmaz {
      * @param      szélesség      a halmazt tartalmazó tömb szélessége.
      * @param      iterációsHatár a számítás pontossága.
      */
-    public MandelbrotHalmazNagyító(double a, double b, double c, double d,
+    public MandelbrotHalmaz(double a, double b, double c, double d,
             int szélesség, int iterációsHatár) {
-        // Az ős osztály konstruktorának hívása
-        super(a, b, c, d, szélesség, iterációsHatár);
-        setTitle("A Mandelbrot halmaz nagyításai");
-        // Egér kattintó események feldolgozása:
-        addMouseListener(new java.awt.event.MouseAdapter() {
-            // Egér kattintással jelöljük ki a nagyítandó területet
-            // bal felső sarkát:
-            public void mousePressed(java.awt.event.MouseEvent m) {
-                // A nagyítandó kijelölt területet bal felső sarka:
-                x = m.getX();
-                y = m.getY();
-                mx = 0;
-                my = 0;
-                repaint();
-            }
-            // Vonszolva kijelölünk egy területet...
-            // Ha felengedjük, akkor a kijelölt terület
-            // újraszámítása indul:
-            public void mouseReleased(java.awt.event.MouseEvent m) {
-                double dx = (MandelbrotHalmazNagyító.this.b
-                        - MandelbrotHalmazNagyító.this.a)
-                        /MandelbrotHalmazNagyító.this.szélesség;
-                double dy = (MandelbrotHalmazNagyító.this.d
-                        - MandelbrotHalmazNagyító.this.c)
-                        /MandelbrotHalmazNagyító.this.magasság;
-                // Az új Mandelbrot nagyító objektum elkészítése:
-                new MandelbrotHalmazNagyító(MandelbrotHalmazNagyító.this.a+x*dx,
-                        MandelbrotHalmazNagyító.this.a+x*dx+mx*dx,
-                        MandelbrotHalmazNagyító.this.d-y*dy-my*dy,
-                        MandelbrotHalmazNagyító.this.d-y*dy,
-                        600,
-                        MandelbrotHalmazNagyító.this.iterációsHatár);
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.d = d;
+        this.szélesség = szélesség;
+        this.iterációsHatár = iterációsHatár;
+        // a magasság az (b-a) / (d-c) = szélesség / magasság
+        // arányból kiszámolva az alábbi lesz:
+        this.magasság = (int)(szélesség * ((d-c)/(b-a)));
+        // a kép, amire rárajzoljuk majd a halmazt
+        kép = new java.awt.image.BufferedImage(szélesség, magasság,
+                java.awt.image.BufferedImage.TYPE_INT_RGB);
+        // Az ablak bezárásakor kilépünk a programból.
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                setVisible(false);
+                System.exit(0);
             }
         });
-        // Egér mozgás események feldolgozása:
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            // Vonszolással jelöljük ki a négyzetet:
-            public void mouseDragged(java.awt.event.MouseEvent m) {
-                // A nagyítandó kijelölt terület szélessége és magassága:
-                mx = m.getX() - x;
-                my = m.getY() - y;
-                repaint();
+        // A billentyűzetről érkező események feldolgozása
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            // Az 's', 'n' és 'm' gombok lenyomását figyeljük 
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if(e.getKeyCode() == java.awt.event.KeyEvent.VK_S)
+                    pillanatfelvétel();
+                // Az 'n' gomb benyomásával pontosabb számítást végzünk.
+                else if(e.getKeyCode() == java.awt.event.KeyEvent.VK_N) {
+                    if(számításFut == false) {
+                        MandelbrotHalmaz.this.iterációsHatár += 256;
+                        // A számítás újra indul:
+                        számításFut = true;
+                        new Thread(MandelbrotHalmaz.this).start();
+                    }
+                // Az 'm' gomb benyomásával pontosabb számítást végzünk,
+                // de közben sokkal magasabbra vesszük az iterációs
+                // határt, mint az 'n' használata esetén
+                } else if(e.getKeyCode() == java.awt.event.KeyEvent.VK_M) {
+                    if(számításFut == false) {
+                        MandelbrotHalmaz.this.iterációsHatár += 10*256;
+                        // A számítás újra indul:
+                        számításFut = true;
+                        new Thread(MandelbrotHalmaz.this).start();
+                    }
+                }
             }
         });
+        // Ablak tulajdonságai
+        setTitle("A Mandelbrot halmaz");
+        setResizable(false);
+        setSize(szélesség, magasság);
+        setVisible(true);
+        // A számítás indul:
+        számításFut = true;
+        new Thread(this).start();
+    }
+    /**
+     * A halmaz aktuális állapotának kirajzolása.
+     */
+    public void paint(java.awt.Graphics g) {
+        // A Mandelbrot halmaz kirajzolása
+        g.drawImage(kép, 0, 0, this);
+        // Ha éppen fut a számítás, akkor egy vörös
+        // vonallal jelöljük, hogy melyik sorban tart:
+        if(számításFut) {
+            g.setColor(java.awt.Color.RED);
+            g.drawLine(0, sor, getWidth(), sor);
+        }
+    }
+    // Ne villogjon a felület (mert a "gyári" update()
+    // lemeszelné a vászon felületét).
+    public void update(java.awt.Graphics g) {
+        paint(g);
     }
     /**
      * Pillanatfelvételek készítése.
@@ -91,17 +131,11 @@ public class MandelbrotHalmazNagyító extends MandelbrotHalmaz {
         g.drawString("c=" + c, 10, 45);
         g.drawString("d=" + d, 10, 60);
         g.drawString("n=" + iterációsHatár, 10, 75);
-        if(számításFut) {
-            g.setColor(java.awt.Color.RED);
-            g.drawLine(0, sor, getWidth(), sor);
-        }         
-        g.setColor(java.awt.Color.GREEN);
-        g.drawRect(x, y, mx, my);
-        g.dispose();        
+        g.dispose();
         // A pillanatfelvétel képfájl nevének képzése:
         StringBuffer sb = new StringBuffer();
         sb = sb.delete(0, sb.length());
-        sb.append("MandelbrotHalmazNagyitas_");
+        sb.append("MandelbrotHalmaz_");
         sb.append(++pillanatfelvételSzámláló);
         sb.append("_");
         // A fájl nevébe belevesszük, hogy melyik tartományban
@@ -121,30 +155,77 @@ public class MandelbrotHalmazNagyító extends MandelbrotHalmaz {
         } catch(java.io.IOException e) {
             e.printStackTrace();
         }
-    }    
-    /**
-     * A nagyítandó kijelölt területet jelző négyzet kirajzolása.
-     */
-    public void paint(java.awt.Graphics g) {
-        // A Mandelbrot halmaz kirajzolása
-         g.drawImage(kép, 0, 0, this);
-        // Ha éppen fut a számítás, akkor egy vörös
-        // vonallal jelöljük, hogy melyik sorban tart:         
-        if(számításFut) {
-            g.setColor(java.awt.Color.RED);
-            g.drawLine(0, sor, getWidth(), sor);
-        }         
-        // A jelző négyzet kirajzolása:
-        g.setColor(java.awt.Color.GREEN);
-        g.drawRect(x, y, mx, my);
+    }
+    /** 
+     * A Mandelbrot halmaz számítási algoritmusa.
+     * Az algoritmus részletes ismertetését lásd például a
+     * [BARNSLEY KÖNYV] (M. Barnsley: Fractals everywhere, 
+     * Academic Press, Boston, 1986) hivatkozásban vagy 
+     * ismeretterjesztő szinten a [CSÁSZÁR KÖNYV] hivatkozásban.
+     */     
+     public void run() {
+        // A [a,b]x[c,d] tartományon milyen sűrű a
+        // megadott szélesség, magasság háló:
+        double dx = (b-a)/szélesség;
+        double dy = (d-c)/magasság;
+        double reC, imC, reZ, imZ, ujreZ, ujimZ;
+        int rgb;
+        // Hány iterációt csináltunk?
+        int iteráció = 0;
+        // Végigzongorázzuk a szélesség x magasság hálót:
+        for(int j=0; j<magasság; ++j) {
+            sor = j;
+            for(int k=0; k<szélesség; ++k) {
+                // c = (reC, imC) a háló rácspontjainak
+                // megfelelő komplex szám
+                reC = a+k*dx;
+                imC = d-j*dy;
+                // z_0 = 0 = (reZ, imZ)
+                reZ = 0;
+                imZ = 0;
+                iteráció = 0;
+                // z_{n+1} = z_n * z_n + c iterációk
+                // számítása, amíg |z_n| < 2 vagy még
+                // nem értük el a 255 iterációt, ha
+                // viszont elértük, akkor úgy vesszük,
+                // hogy a kiinduláci c komplex számra
+                // az iteráció konvergens, azaz a c a
+                // Mandelbrot halmaz eleme
+                while(reZ*reZ + imZ*imZ < 4 && iteráció < iterációsHatár) {
+                    // z_{n+1} = z_n * z_n + c
+                    ujreZ = reZ*reZ - imZ*imZ + reC;
+                    ujimZ = 2*reZ*imZ + imC;
+                    reZ = ujreZ;
+                    imZ = ujimZ;
+                    
+                    ++iteráció;
+                    
+                }
+                // ha a < 4 feltétel nem teljesült és a
+                // iteráció < iterációsHatár sérülésével lépett ki, azaz
+                // feltesszük a c-ről, hogy itt a z_{n+1} = z_n * z_n + c
+                // sorozat konvergens, azaz iteráció = iterációsHatár
+                // ekkor az iteráció %= 256 egyenlő 255, mert az esetleges
+                // nagyítasok során az iteráció = valahány * 256 + 255
+                iteráció %= 256;
+                // így a halmaz elemeire 255-255 értéket használjuk,
+                // azaz (Red=0,Green=0,Blue=0) fekete színnel:
+                rgb = (255-iteráció)|
+                        ((255-iteráció) << 8) |
+                        ((255-iteráció) << 16);
+                // rajzoljuk a képre az éppen vizsgált pontot:
+                kép.setRGB(k, j, rgb);
+            }
+            repaint();
+        }
+        számításFut = false;
     }
     /**
-     * Példányosít egy Mandelbrot halmazt nagyító obektumot.
+     * Példányosít egy Mandelbrot halmazt kiszámoló obektumot.
      */
     public static void main(String[] args) {
-        // A kiinduló halmazt a komplex sík [-2.0, .7]x[-1.35, 1.35]
-        // tartományában keressük egy 600x600-as hálóval és az
-        // aktuális nagyítási pontossággal:
-        new MandelbrotHalmazNagyító(-2.0, .7, -1.35, 1.35, 600, 255);
+        // A halmazt a komplex sík [-2.0, .7]x[-1.35, 1.35] tartományában
+        // keressük egy 400x400-as hálóval:
+        new MandelbrotHalmaz(-2.0, .7, -1.35, 1.35, 600, 255);
     }
-} 
+}                
