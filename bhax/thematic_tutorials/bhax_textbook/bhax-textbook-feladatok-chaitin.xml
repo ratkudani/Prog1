@@ -23,10 +23,13 @@
             <link xlink:href="https://github.com/pkristof1999/prog1/blob/master/Feladatok/GIMP/rekurzioval.png">Rekurzív kép</link>
         </para>
         <para>
-            <link xlink:href="https://github.com/pkristof1999/prog1/tree/master/Feladatok/GIMP">Feladatok</link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/tree/master/Feladatok/Gimp">Feladatok</link>
         </para>
         <para>
-            Először is szeretném bevezetni a feladatban szereplő programozási nyelv általános tudnivalóit, hogy még érthetőbb legyen a feladat későbbi magyarázata és értelmezése az olvasó számára. Az alkalmazása elég széles körben elterjedt, ez alapján pedig egy ismert nyelvről lesz szó. A feladat során a Scheme dialektust kell használnunk. A program, és a feladat megoldásához szükségünk van a Gimp képmoduláló programjában található beépített környezethez, a Script-fu-ra, ami a Szűrők elnevezésű panelben lelhető meg.
+            Tutorom: Pankotai Kristóf
+        </para>
+        <para>
+            Először is szeretném bevezetni a feladatban szereplő programozási nyelv általános tudnivalóit, hogy még érthetőbb legyen a feladat későbbi magyarázata és értelmezése az olvasó számára. Az alkalmazása elég széles körben elterjedt, ez alapján pedig egy ismert nyelvről lesz szó. A feladat során a Scheme dialektust kell használnunk. A program, és a feladat megoldásához szükségünk van a Gimp képmoduláló programjában található beépített környezetre, a Script-fu-ra, ami a Szűrők elnevezésű panelben lelhető meg.
         </para>
         <para>
             A forráshoz hozzárendelt iteratív faktoriálisként megírt programkód bemutatásával kezdem a bekezdést. Itt először is definiáljuk az n-t ami lehetőleg valami olyan nevet kapjon, ami a faktoriális kifejezésre hajaz, ezáltal megkönnyítve a későbbi olvasását a kódchipetnek. Emellé még meg kell adnunk egy product nevezetű változót is, amivel az értékvizsgálat fog lezajlani olyan módon, ami majd a rekurzív faktoriálisos feladatban is kelleni fog. Egy értékvizsgálati eljárás során megnézzük, hogy a kapott eredmény megegyezik-e eggyel, és ha igen, akkor önmagát adjuk vissza válaszként. Egyéb esetben, ahol az értéke nagyobb lesz az előbb említett számnál, azaz az egynél, akkor kiszámolja a faktoriálist, és azt adja meg válaszul.
@@ -62,11 +65,19 @@
             Megoldás forrása:             
         </para>
         <para>
-            <link xlink:href="https://github.com/pkristof1999/prog1/blob/master/Feladatok/GIMP/bhax_chrome3.scm">Gimpes króm effekt</link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/Gimp/bhax_chrome3.scm">Króm effekt</link>
         </para>
         <para>
             A címben szereplő feladat során ismételten igénybe vesszük, az előző feladat alapján már jól ismert Gimp nevezetű képszerkesztő progamot amelyhez most egy szkript megírásával egy új bővítményt, azaz kiegészítőt fogunk hozzárendelni a következőféleképpen. Ahogy a leírás is megfogalmazza, egy krómium effektet fogunk létrehozni a programhoz. A forrásban megosztott kód hordozza és foglalja magába azokat a beállításokat, amelyekkel elérjük a krómos hatást. Alapjában véve ehhez szükségünk lesz az előző feladatban is használt rekurzív függvényt, de erről majd később fejtek ki részletesebben tudnivalókat. A kis kódrészletünkben szerepelnek olyan tömbök, amelyek a színskálákat ölelik fel, plusz egy rekurzív függvény alapú szegmenst, amely a listát felhasználva vesz ki részeket/elemeket, majd egy ehhez hasonlót ami a szélességét elemzi és intermediál a szöveggel, majd a magasságával is. Ezeket használva érjük el a szkript végleges alakját, és ezzel a célunkat is, hogy elérjük a króm alapú és kinézetű hatást. Legvégül pedig ne felejtsük el, hogy a megírt szkript-et be kell építenünk a képszerkesztő programunkba úgy, hogy a fájlunkat bemásoljuk a Gimp megfelelő, direkt az ilyen célre konstruált mappába, amit majd a későbbiekben a kiegészítők közt találunk meg.
-        </para>    
+        </para>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="../../Feladatok/Gimp/chrome_effect.png"/>
+            </imageobject>
+            <caption>
+                <para>A kép a feladatban meghatározott effekt eredményét illusztrálja.</para>
+            </caption>
+        </mediaobject>
     </section>        
 
     <section>
@@ -82,14 +93,19 @@
             Megoldás forrása:           
         </para>
         <para>
-            <link xlink:href="https://github.com/pkristof1999/prog1/blob/master/Feladatok/GIMP/bhax_mandala9.scm">Script</link>
-        </para>
-        <para>
-            <link xlink:href="https://github.com/pkristof1999/prog1/blob/master/Feladatok/GIMP/eredmeny.png">Végkifejlet</link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/Gimp/bhax_mandala9.scm">Script</link>
         </para>
         <para>
             A program amelyet megvalósítunk eléggé hasonlít az előző feladatban felvetett koncepcióhoz. Itt is a cél egy szkript megírása annyi különbséggel, hogy most nem egy konkrét színefektet hozunk létre, hanem a címben is szereplő mandala-t, amelynek az eredete indiai képmegalkotási mód. Első sorban, mint általában most is a változók létrehozásával, és definiálásával kell kezdenünk. Ezek után a szoftverünk átmegy a képalkotási lépcsőkön, hogy elérjük amit szeretnénk, azaz a mandala megalkotását. Első valós lépésünk a kívánt hatásért fontos meghatároznunk, hogy milyen szót, és betűtípust választunk ki, hogy erre vegyük igénybe az általunk megírt, vagy kölcsönvett és használt szkriptet. A kódcsipet folyamatosan pörög ezalatt a procedúra alatt a háttérben, hogy használja a meghatározott folyamatot a célért.
-        </para>            
+        </para>   
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="../../Feladatok/Gimp/final.png"/>
+            </imageobject>
+            <caption>
+                <para>A kép a feladat megoldását illusztrálja.</para>
+            </caption>
+        </mediaobject>         
     </section>        
 
 <!--    

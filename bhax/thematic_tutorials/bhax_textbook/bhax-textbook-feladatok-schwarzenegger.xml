@@ -23,10 +23,13 @@
             <link xlink:href="https://progpater.blog.hu/2016/11/13/hello_samu_a_tensorflow-bol">Progpater-es link</link>
         </para>
         <para>
-            Az MNIST egy olyan adatbázis, ahol általunk választott, azaz megadott és kézzel beírt számokat táról. Ezeket az adatokat a legtöbb esetben képfeldogozó és képeket felismerő programok szokták használni, alkalmazni. A program a feladat leírása alapján, Python magasszintű programozási nyelven íródott, amelyhez a képfelismerés miatt még szükségünk van továbbá a TensorFlow nevezetű kiegészítő programra. 
-            Az MNIST egy adatbázis, mely kézzel írott számjegyeket tartalmaz. Ezt általában képfelisemrő progra-
-            mokhoz szokták felhasználni. A programot Python nyelven fordítjuk, viszont kell hozzá még a TensorFlow
-            is, melyeket a következő sorokkal telepíthetünk:
+            Az MNIST egy olyan adatbázis, ahol az általunk választott, azaz megadott és kézzel beírt számokat tárólhatjuk.
+            Ezeket az adatokat a legtöbb esetben képfeldogozó és képeket felismerő programok szokták használni, alkalmazni. 
+            A program a feladat leírása alapján, Python magasszintű programozási nyelven íródott, amelyhez a képfelismerés miatt 
+            még szükségünk van továbbá a TensorFlow nevezetű kiegészítő programra. A feldolgozás során 60000 adategységet tartalmazó adatbázist fogjuk felhasználni,
+            amely 28*28-as felbontású, méretű képekkel dolgozik, amelyek fekete és fehér pixelekből állnak. Jelen feladatban, ahogy az a mellékelt videó alapján leírva lesz
+            az a lényege, hogy vesszük az alap adatbázisunkat, ami 60000 képpel tanulja meg amit kiadunk neki. Ebben a példában a már említett felbontásban tálalt 0-tól 10-ig terjedő
+            fekete pontú és fehér alapú képeket. A tanulás eredményét pedig egy 10000 darabból álló kontroll képpel tudjuk letesztelni.
         </para>
         <para>
         A telepítés menete, hogy használni tudjuk a TensorFlow-ot a programunk futásához:
@@ -50,7 +53,23 @@
         VI. lépés -> pip install --upgrade tensorflow
         </para>
         <para>
-        Plusz az ezekből való head-öröket implementálnunk kell a programba.
+        Ezek után még feltétlenül szükségünk lesz a TensorFlow-wal kapcsolatos megfelelő head-örök implementálására.
+        </para>
+        <para>
+         A futtatáshoz szükségünk van az SMNIST programhoz, amellyel 60000 képet készítünk, amihez még kelleni fog 10000 db kép a kontrollhoz.
+            Futtatni a következőképpen kell:
+        </para>
+        <para>
+            I. lépés -> A programunkat tartalmazó mappába belépve beírjuk, hogy: g++ smnistg.cpp -o smnistg -lpng
+        </para>
+        <para>
+            II. lépés -> ./smnistg train-labels-idx1-ubyte train-images-idx3-ubyte 60000
+        </para>
+        <para>
+            III. lépés -> ./smnistg t10k-labels-idx1-ubyte t10k-images-idx3-ubyte 10000
+        </para>
+        <para>
+            A futtatási részt magamtól nem igazán értettem, ezért az ihletért <link xlink:href="https://gitlab.com/Laj01/bhax?fbclid=IwAR3cledzjwUQ2fkmP8R3_bp_gWVOhspZf_zzQ3krWEt9cckauDUO89QGUeY">Nagy Lajos</link>-hoz fordultam.
         </para>
     </section>        
 
@@ -81,7 +100,7 @@
             Megoldás forrása:                
         </para>
         <para>
-            <link xlink:href="https://chromium.googlesource.com/external/github.com/tensorflow/tensorflow/+/r0.10/tensorflow/g3doc/tutorials/mnist/pros/index.md">TensorFlow weboldal a feladathoz, mint forrás</link>
+            <link xlink:href="https://chromium.googlesource.com/external/github.com/tensorflow/tensorflow/+/r0.10/tensorflow/g3doc/tutorials/mnist/pros/index.md">TensorFlow weboldal a feladathoz, mint forrás amelyből a megoldást fordítottam.</link>
         </para>
         <para>
             <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/deep_MNIST_for_experts.py">TensorFlow MNIST</link>
@@ -90,7 +109,7 @@
           Lényegbe foglalva a feladatban szereplő témát, segítségűl hívom az előbbi feladat során szerzett ismereteinket. Rövid bevezőként némi összehasonlítás során megállapíthatjuk, hogy a jelenlegi kiértékelendő koncepciónkban egy többrétegő soft mnist-et kapunk, ami ebből adódóan pontosabban végzi el a kapott műveleteket amelyeket beleimplementáltunk és meghatároztunk. Továbbá némi "hátrányt" is megfigyelhetünk, amit a megfigyeléseink során a nagyobb erőforrásigényben találhatunk meg. Ismeeretünket kiterjesztve közlendő, hogy a TensorFlow egy nagyon erős könyvtár, ami a széles skálájú számokkal dolgozik. Ezáltal is elősegítve az implementáló és tanuló mély neutrális működést.
         </para>
         <para>
-            Kezdésként fontos tisztázni, hogy az első két sor feltétlenül szükséges, mivel boilerplate-ként szerepel jelen esetben. Ugyanis ezáltal töltünk és olvasunk adatot atomataként. A következő pár sor fogja tartalmazni a kiszámítási gráf építését fogja lekreálni, és a futtató gráfot is. Tovább építve szükséges a Softmax Regressziós Modelt, ahol egy gyökérpontokat készítünk a bemeneti képhez és a célkimeneti osztályokhoz. Ezeket az x és y_ változókkal jelöljük. Az első változó értéke a 28*28-as pixeles MNIST-es képet jelöli. A tanulás maga a model kereteiben belül zajlik majd le. 
+            Kezdésként fontos tisztázni, hogy az első két sor feltétlenül szükséges, mivel boilerplate-ként szerepel jelen esetben. Ugyanis ezáltal töltünk és olvasunk adatot atomataként. A következő pár sor fogja tartalmazni a kiszámítási gráf építését fogja lekreálni, és a futtató gráfot is. Tovább építve szükséges a Softmax Regressziós Modelt, ahol egy gyökérpontokat készítünk a bemeneti képhez és a célkimeneti osztályokhoz. Ezeket az x és y_ változókkal jelöljük. Az első változó értéke a 28*28-as pixeles MNIST-es képet jelöli. A tanulás maga a model kereteiben belül zajlik majd le. A TensorFlow egyik előnye ezen a téren, hogy nem csak sima bemenetként tuddjuk kezelni a mélységet és a tendenciát, hanem változókként.
         </para>
     </section>        
 <!--

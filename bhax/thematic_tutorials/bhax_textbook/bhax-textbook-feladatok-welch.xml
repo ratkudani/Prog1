@@ -16,15 +16,141 @@
         <para>
             Megoldás forrása:                
         </para>
+        <para>Elméleti forrás: <link xlink:href="https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html">Java-s tankönyvtár.</link></para>
+        <para>Gyakorlati forrás: <link xlink:href="https://sourceforge.net/projects/udprog/">UDPROG repó.</link></para>
         <para>
-            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/polar.java">Első osztály java.</link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/tree/master/Feladatok/BinFa/Elso_osztaly">Első osztályaim.</link>
         </para>
         <para>
-            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/polar.cpp">Első osztály C++.</link>
+            A feladat megvalósítása során megalkotott programunk feladata az, hogy a polár transzformációs algoritmussal dolgozzon. A program tíz alkalommal számol, és ez alapján, hogy tárol-e tag visszatérítést, akkor azt is figyelembe veszi. 
         </para>
-        <para>
-            A feladat megvalósítása során megalkotott programunk feladata az, hogy a polár transzformációs algoritmussal dolgozik. A program tíz alkalommal számol, és ez alapján, hogy tárol-e tag visszatérítést, akkor azt is figyelembe veszi. 
-        </para>                
+        <para>Az első c++ osztályom bemutatása:</para> 
+        <programlisting language="c++"><![CDATA[
+            #include <iostream>
+#include <cstdlib>	
+#include <cmath>	
+#include <ctime>	
+
+using namespace std;
+
+class Random
+{
+
+	public:
+
+		Random();
+
+		~Random(){} 
+
+		double get();
+	private:
+
+		bool exist;
+		double value;
+
+};
+
+
+Random::Random() 
+{
+	exist = false;
+	srand (time(NULL));
+};
+
+
+double Random::get() 
+{
+	if (!exist)
+	{
+		double u1, u2, v1, v2, w;
+
+		do
+		{
+			u1 = rand () / (RAND_MAX + 1.0);
+			u2 = rand () / (RAND_MAX + 1.0);
+			v1 = 2 * u1 - 1;
+			v2 = 2 * u2 - 1;
+			w = v1 * v1 + v2 * v2;
+		    }
+		while (w > 1);
+
+		double r = sqrt ((-2 * log (w)) / w);
+
+		value = r * v2; 
+		exist = !exist;
+
+		return r * v1;
+	}
+	
+	else
+	{
+		exist = !exist;
+		return value;
+	}
+};    
+
+int main() 
+{
+
+	Random rnd;
+
+	for (int i = 0; i < 2; ++i) cout << rnd.get() << endl;
+
+}
+        ]]></programlisting> 
+        <para> Az első Java osztályom bemutatása:</para> 
+        <programlisting><![CDATA[
+            public class PolárTranszF {
+    
+    boolean létezik_tárolt = false;
+    double tárolt;
+    
+    public PolárTranszF() {
+        
+        létezik_tárolt = false;
+        
+    }
+    
+    public double matek_rész() {
+        
+        if(!létezik_tárolt) {
+            
+            double u1, u2, v1, v2, w;
+            do {
+                u1 = Math.random();
+                u2 = Math.random();
+                
+                v1 = 2*u1 - 1;
+                v2 = 2*u2 - 1;
+                
+                w = v1*v1 + v2*v2;
+                
+            } while(w > 1);
+            
+            double r = Math.sqrt((-2*Math.log(w))/w);
+            
+            tárolt = r*v2;
+            létezik_tárolt = !létezik_tárolt;
+            
+            return r*v1;
+            
+        } else {
+            létezik_tárolt = !létezik_tárolt;
+            return tárolt;
+        }
+    }
+    
+    public static void main(String[] args) {
+        
+        PolárTranszF g = new PolárTranszF();
+        
+        for(int i=0; i<2; ++i)
+            System.out.println(g.matek_rész());
+        
+    }
+    
+}
+        ]]></programlisting>             
     </section>        
 
     <section>
@@ -36,17 +162,44 @@
             Megoldás forrása:                
         </para>
         <para>
-            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/z3a7.cpp">Fa építés.</link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/BinFa/Binary_Tree.c">Fa építés.</link>
         </para>
         <para>
-            A binfa egy olyan adatszerkezet, aminek csomópontjainak legfeljebb két gyereke lehet. Ezeket jobb és bal
-            gyermekként szokás hívni. Valamint a gyerekek is csomópontként működnek. Azaz a gyerekeknek is lehet-
-            nek további gyerekei, így elég komplex fákat lehet kapni végeredményül. Ezért a binfákat érdemes rekurziv
-            módon bejárni. Továbbá attól függően, hogy milyen a gyerekek eloszlása lehet egy binfa kiegyensúlyozott,  ̋
-            tökéletesen kiegyensúsolyzott stb. Ezek a tulajdonságog többnyire csak a jobb és bal oldal viszonyát nézik
-            egymáshoz. A program nem csinál mást mint a megfelelo bemenet megkapása után egy fájlba felépít egy  ̋
-            binfát.
+            Bevezetés gyanánt, a bináris fa egy adatszerkezet, amelyről annyit érdemes és
+            fontos tudni, hogy minden egyes node-jának, azaz csomópontjának csak további két
+            csomópontja, "becézve" gyereke lehet. Ezt tisztázva rájöhetünk, hogy ez által egy
+            a végtelenségig futó fa struktúra szerű elemet hozunk létre. Ennek az alapja a Linux
+            rendszerén, az UNIX-ra létrehozott fájltömörítésén alapszik. A mi esetünkben egy bemeneti
+            szöveges fájlból fok a program egy bináris elemekre leosztott "fa" szerű képet létrehozni, így
+            tárolva el benne az információt, azaz az adatot. Lentebb ábrázolni fogom az elméleti kialakítását,
+            továbbá egy lefuttatott program során kialakított kiexportált eredményt egy másik erre
+            a célre meghatározott szöveges fájlba.
         </para>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="../../Feladatok/binary_tree.png"/>
+            </imageobject>
+            <caption>
+                <para>A kép egy bináris fát ábrázol.</para>
+                <para><link xlink:href="https://www.researchgate.net/figure/A-binary-tree-with-15-nodes-The-node-number-indicates-the-order-in-which-the-node-was_fig1_221496921">https://www.researchgate.net/figure/A-binary-tree-with-15-nodes-The-node-number-indicates-the-order-in-which-the-node-was_fig1_221496921</link></para>
+            </caption>
+        </mediaobject>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="../../Feladatok/be.png"/>
+            </imageobject>
+            <caption>
+                <para>A kép a bemeneti txt fájl tartalmát ábrázolja.</para>
+            </caption>
+        </mediaobject>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="../../Feladatok/ki.png"/>
+            </imageobject>
+            <caption>
+                <para>A kép a kimenetet mutatja be a konzolon.</para>
+            </caption>
+        </mediaobject>
     </section>        
         
     <section>
@@ -58,17 +211,26 @@
             Megoldás forrása:                
         </para>
         <para>
-            <link xlink:href="https://github.com/DonatPataki/University/tree/master/prog1/bejaras">Fabejárás.</link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/tree/master/Feladatok/BinFa/Bejaras">Fabejárás.</link>
         </para>
         <para>
-            A binfáknak három féle bejárási módja van. Ezek az inorder, preorder és postorder nevet viselik. A preorder
-            fabejárás során a gyökérből indulunk ki és előbb azok bal majd jobb oldali gyerekeit iratjuk ki. Inorder és  ̋
-            postorder során az utolsó bal oldali gyerekből indulunk ki és ha inorder kiiratás szeretnénk akkor azután a  ̋
-            gyökeret, majd a jobb oldali gyereket írjuk ki. Ha pedig ezt a sorrendet felcseréljük, azaz a bal gyerek után
-            a jobbat majd a gyökeret írjuk ki, akkor postorder bejárást kapunk. Ezeket a bejárásokat célszerű rekurzívan
-            kezelni, mivel ezek a bejárások ugyanazt csinálják és így elég egyszer megírni és csak újra meghívni a binfa
-            egy részfájára.
+            Alapvetően már megtárgyaltuk, hogy mi is az a bináris fa, úgyhogy most itt az ideje
+            egy kis csavarnak a történetben. Minek által a fánk ugyebár tudjuk, hogy gyökereket épít
+            maga "alá" még mindig van egy olyan kérdés a levegőben, ami az ebben az adatszerkezetben nem
+            annyira jártasaknak fel sem merül. Na de milyen irányba épül fel a "gyökérzete a fának? Milyen
+            sorrendben és milyen rendszer alapján? Ez a feladat erre fog választ adni nekünk. 
         </para>
+        <para>Futtatása a következő: gcc valemelyiktipusubejaras_binfa.c -lm -o valamelyiktipusubejaras_binfa. 
+        Majd: ./valamelyiktipusubejaras_binfa "balra mutató nyíl" kimenetifajl.txt</para>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="../../Feladatok/binary_tree_traversal.png"/>
+            </imageobject>
+            <caption>
+                <para>A kép a bináris fa bejárási módjait reprezentálja.</para>
+                <para><link xlink:href="https://computersciencewiki.org/images/7/7c/Binary_tree_traversal.png">https://computersciencewiki.org/images/7/7c/Binary_tree_traversal.png</link></para>
+            </caption>
+        </mediaobject>
     </section>        
                         
     <section>
@@ -81,12 +243,155 @@
             Megoldás forrása:                
         </para>
         <para>
-            <link xlink:href="https://github.com/DonatPataki/University/tree/master/prog1/lzwbinfa">Tag a gyökér.</link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/BinFa/tag_gyoker.cpp">Tag a gyökér.</link>
         </para>
         <para>
-            Binfaépítés azzal a különbséggel, hogy a csomópont be van ágyazva a gyökérbe és ezért közvetlenűl el
-            lehet érni, mivel a csomópont a gyökér része, de lényegében teljesen ugyanaz. Ugyanaz az az alapelve, szóval ezek alapján a kifejtés a fentebb említett feladat kidolgozásában szerepel.
+            Röviden és tömören a lényege az, hogy most a C++ magasszintű programozási nyelvvel megkreált,
+            de szerkezetében szinte teljesen azonos bináris fánkat némi módosítással ellátva
+            alakítsunk ki. Jelen esetben a csomópontot be kell iktatnunk a gyökérbe, ezáltal könnyebben
+            elérhetővé téve azt. Az is célunk ez által, hogy maga az LZW is megfelelően tudjon dolgozni vele.
+            A futtatása a szokásos g++ megoldással működik: g++ fa.cpp -o fa, ezek után
+            pedig kelleni fog a kiíratáskor valamilyen kimeneti szöveges fájl, és kész. A megoldás kódkiemelve
+            lentebb szerepel.
         </para>
+        <programlisting language="c++"><![CDATA[
+            #include <iostream>
+
+class LZWTree
+{
+public:
+    LZWTree (): fa(&gyoker){}
+
+    ~LZWTree ()
+    {
+        szabadit (gyoker.egyesGyermek ());
+        szabadit (gyoker.nullasGyermek ());
+    }
+
+    void operator<<(char b)
+    {
+        if (b == '0')
+        {
+
+            if (!fa->nullasGyermek ())
+            {
+                Node *uj = new Node ('0');
+                fa->ujNullasGyermek (uj);
+                fa = &gyoker;
+            }
+            else
+            {
+                fa = fa->nullasGyermek ();
+            }
+        }
+        else
+        {
+            if (!fa->egyesGyermek ())
+            {
+                Node *uj = new Node ('1');
+                fa->ujEgyesGyermek (uj);
+                fa = &gyoker;
+            }
+            else
+            {
+                fa = fa->egyesGyermek ();
+            }
+        }
+    }
+    void kiir (void)
+    {
+        melyseg = 0;
+        kiir (&gyoker);
+    }
+    void szabadit (void)
+    {
+        szabadit (gyoker.jobbEgy);
+        szabadit (gyoker.balNulla);
+    }
+
+private:
+
+    class Node
+    {
+    public:
+        Node (char b = '/'):betu (b), balNulla (0), jobbEgy (0) {};
+        ~Node () {};
+        Node *nullasGyermek () {
+            return balNulla;
+        }
+        Node *egyesGyermek ()
+        {
+            return jobbEgy;
+        }
+        void ujNullasGyermek (Node * gy)
+        {
+            balNulla = gy;
+        }
+        void ujEgyesGyermek (Node * gy)
+        {
+            jobbEgy = gy;
+        }
+        
+    private:
+        friend class LZWTree;
+        char betu;
+        Node *balNulla;
+        Node *jobbEgy;
+        Node (const Node &);
+        Node & operator=(const Node &);
+    };
+
+    Node gyoker;
+    Node *fa;
+    int melyseg;
+
+    LZWTree (const LZWTree &);
+    LZWTree & operator=(const LZWTree &);
+
+    void kiir (Node* elem)
+    {
+        if (elem != NULL)
+        {
+            ++melyseg;
+            kiir (elem->jobbEgy);
+
+            for (int i = 0; i < melyseg; ++i)
+                std::cout << "---";
+            std::cout << elem->betu << "(" << melyseg - 1 << ")" << std::endl;
+            kiir (elem->balNulla);
+            --melyseg;
+        }
+    }
+    void szabadit (Node * elem)
+    {
+        if (elem != NULL)
+        {
+            szabadit (elem->jobbEgy);
+            szabadit (elem->balNulla);
+            delete elem;
+        }
+    }
+
+};
+
+int
+main ()
+{
+    char b;
+    LZWTree binFa;
+
+    while (std::cin >> b)
+    {
+        binFa << b;
+    }
+
+    binFa.kiir ();
+    binFa.szabadit ();
+
+    return 0;
+}
+
+        ]]></programlisting>
     </section>        
                 
     <section>
@@ -99,14 +404,161 @@
             Megoldás forrása:  
         </para>
         <para>
-            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/bintree.cpp">Mutató.</link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/BinFa/fa_gyoker_mutato.cpp">Mutató a gyökér.</link>
         </para>
         <para>
-            A node és a tree osztályok teljesen el vannak választva egymástól, így a fa működését úgy tudjuk
-            megvalósítani, hogy a gyökér tagod mutatóként továbbadjuk a csomópontnak és így épitjük fel a fát minden
-            egyes új csomóponttal, aminek az a nehézsége vagy különbsége, hogy ha a gyökeret akarjuk elérni, azt csak
-            a mutatón keresztűl tudjuk megtenni, de lényegében ugyanaz csak meg van bonyolítva.
+            Ez a feladat végülis az előző feladat megbonyolítása, ezzel is bővítve programozási ismereteinket,
+            tudásunkat. A mostani helyzetünkben nem fog úgy működni a programunk mint ahogy azt mi elképzeljük,
+            mivel a gyökér és a fa osztályok különálló szegmensekre lettek elosztva. Így alakult ki az a szituáció,
+            hogy mindkét fél pointerként, azaz mutatóként "él" tovább a kódunkban. Na már most, hogy ebből megint egy
+            használható eszközt tudjuk kifaragni szükségünk lesz pár dolog átalakítására. De mik is ezek a dolgok?
+            Az első lépés, hogy magunkban helyre rakjuk azt a kis finomságot, hogy mostantól pointeren át tudjuk
+            elérni a gyökeret. A lényegi része pedig az, hogy át kell pakolni az értéket úgy, hogy a gyökér eljusson
+            a pointeren keresztül az épülendő csomópontokhoz.
         </para>
+        <programlisting language="c++"><![CDATA[
+            #include <iostream>
+
+class LZWTree
+{
+public:
+    LZWTree () 
+    {
+        gyoker  = new Node();
+        fa = gyoker;
+    }
+
+    ~LZWTree ()
+    {
+         szabadit (gyoker->egyesGyermek ());
+         szabadit (gyoker->nullasGyermek ());
+         delete gyoker;
+    }
+
+    void operator<<(char b)
+    {
+        if (b == '0')
+        {
+
+            if (!fa->nullasGyermek ())
+            {
+                Node *uj = new Node ('0');
+                fa->ujNullasGyermek (uj);
+                fa = gyoker;
+            }
+            else
+            {
+                fa = fa->nullasGyermek ();
+            }
+        }
+        else
+        {
+            if (!fa->egyesGyermek ())
+            {
+                Node *uj = new Node ('1');
+                fa->ujEgyesGyermek (uj);
+                fa = gyoker;
+            }
+            else
+            {
+                fa = fa->egyesGyermek ();
+            }
+        }
+    }
+    void kiir (void)
+    {
+        melyseg = 0;
+        kiir (gyoker);
+    }
+    void szabadit (void)
+    {
+        szabadit (gyoker->jobbEgy);
+        szabadit (gyoker->balNulla);
+    }
+
+private:
+
+    class Node
+    {
+    public:
+        Node (char b = '/'):betu (b), balNulla (0), jobbEgy (0) {};
+        ~Node () {};
+        Node *nullasGyermek () {
+            return balNulla;
+        }
+        Node *egyesGyermek ()
+        {
+            return jobbEgy;
+        }
+        void ujNullasGyermek (Node * gy)
+        {
+            balNulla = gy;
+        }
+        void ujEgyesGyermek (Node * gy)
+        {
+            jobbEgy = gy;
+        }
+        
+    private:
+        friend class LZWTree;
+        char betu;
+        Node *balNulla;
+        Node *jobbEgy;
+        Node (const Node &);
+        Node & operator=(const Node &);
+    };
+
+    Node *gyoker;
+    Node *fa;
+    int melyseg;
+
+    LZWTree (const LZWTree &);
+    LZWTree & operator=(const LZWTree &);
+
+    void kiir (Node* elem)
+    {
+        if (elem != NULL)
+        {
+            ++melyseg;
+            kiir (elem->jobbEgy);
+
+            for (int i = 0; i < melyseg; ++i)
+                std::cout << "---";
+            std::cout << elem->betu << "(" << melyseg - 1 << ")" << std::endl;
+            kiir (elem->balNulla);
+            --melyseg;
+        }
+    }
+    void szabadit (Node * elem)
+    {
+        if (elem != NULL)
+        {
+            szabadit (elem->jobbEgy);
+            szabadit (elem->balNulla);
+            delete elem;
+        }
+    }
+
+};
+
+int
+main ()
+{
+    char b;
+    LZWTree binFa;
+
+    while (std::cin >> b)
+    {
+        binFa << b;
+    }
+
+    binFa.kiir ();
+    binFa.szabadit ();
+
+    return 0;
+}
+
+        ]]></programlisting>
     </section>                     
 
     <section>
@@ -119,20 +571,48 @@
             Megoldás forrása:  
         </para>
         <para>
-            <link xlink:href="https://github.com/DonatPataki/University/tree/master/prog1/mozgato">Mozgató szemantika.</link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/BinFa/mozgato_konstruktor.cpp">Mozgató szemantika.</link>
         </para>
         <para>
-            A mozgató konstruktor lehetővé teszi, hogy egy object érétkeit egy másikba helyezük át. Azaz jelen esetben  ̋
-            ha binfás példára nézzük, akkor a mozgató konstruktor segítségével lehetséges, hogy egy már kész binfát
-            egy másikba tegyünk, azonban így az amiből mozgattuk az értékeket üresen marad, mivel nem történik  ̋
-            más mint, hogy az értékeket más helyre pakoljuk. Előnye a másolással szemben azonban az, hogy a  ̋
-            mozgatás kevesebb erőforrást vesz igénybe mint egy teljes másolatot készíteni az egészről. A c++11 óta van  ̋
-            alapértelmezett mozgató konstruktor is, ami hasonlóan a másolóhoz nem mindig működik tökéletesen, ezért
-            lehetőség van annak működését deklarálni is. A mozgató értékadás hasonló a mozgató konsteruktorhoz,  ̋
-            azzal a különbséggel, hogy az utóbbi akkor kerűl meghívásra, ha deklarációkor adjuk meg az értéket, míg
-            a mozgató értékadás akkor, ha már egy object deklarálva lett és annak értékét később akarjuk egy másikból  ̋
-            áthelyezni.
+            Ebben a feladatban továbbra is a bináris fával fogunk foglalkozni ugyan úgy, ahogy azt
+            ebben az egész Welch nevezetű feladatcsokorban tettük. Ám de eljutva az utolsó feladathoz
+            találkozhatunk csak a legnagyobb kihívással amit ez a csokor elénk állíthat. A mozgató szemantika,
+            azaz konstruktor lényegi szerepe, hogy célzott szegmenseket és értékeket egy másik szegmensbe tudjuk
+            "átpakolni". Még mielőtt tovább mennénk tisztáznunk kell, hogy ez az eset teljesen jól reprezentálható
+            egy olyan hétköznapi példán keresztül is, mint két cipősdoboz és egy kis labda esete. Ugyanis a mozgató
+            konstruktor működési elve szerint, ha az egyik dobozból átrakjuk a labdát a másikba, akkor az eredeti dobozunk
+            tartalmilag üres lesz. Ez érvényes teljeskörűen a programunk esetére is, ahol ugyebár az eddigi feladatok
+            alapjának szolgáló binfákkal is a pakolás során, az első kipakolt fa kiürül. Erőforrás alapján
+            ráadásul kevesebbet igényel mint a másoló társa. A feladat leírását elemezve először különös lehet, hogy
+            ott van a konstruktor és értékadás kifejezés is. Ez azért van mert technikai különbségek adódnak a 
+            két fajtája között. A legfőbb ilyen szempont az, hogy deklarálva van-e már az a tárgy, amit mozgatni szeretnénk.
+            Amennyiben a válasz igen, akkor értékadásról van szó, mivel ezt majd csak a továbbiakban pakoljuk. Ezzel 
+            szemben pedig akkor van szó konstruktorról, ha a meghatározás során kap egy értéket.
         </para>
+        <para>A későbbi nyomonkövetési feltételnek is megfeleltetve van megadva a forrás.</para>
+        <programlisting language="c++"><![CDATA[
+            LZWBinFa binFa2, binFa4;
+binFa2 << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1';
+
+binFa4 << '0' << '0' << '0' << '0' << '0' << '0';
+std::cout << "egy"<< binFa2 << "egy" << std::endl;
+std::cout << "ketto" << binFa4 << "ketto" <<std::endl;
+
+binFa4 = binFa2;
+
+std::cout << "egy"<< binFa2 << "egy" << std::endl;
+std::cout << "ketto" << binFa4 << "ketto" <<std::endl;
+
+
+        /*std::cout <<"Swappelünk" << std::endl;
+        std::swap(binFa2,binFa4);
+        std::cout <<"Vector-ba rakjuk" << std::endl;
+        std::vector<LZWBinFa> v;
+        v.push_back(std::move (binFa ));
+        std::cout <<"Új fa" << std::endl;
+        LZWBinFa binFa3 = std::move (binFa2);*/
+   
+        ]]></programlisting>
     </section>                     
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 </chapter>                

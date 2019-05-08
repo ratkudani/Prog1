@@ -18,18 +18,16 @@
             <link xlink:href="https://github.com/ratkudani/Prog1/tree/master/Feladatok/Myrmecologist">Myrmecologist.</link>
         </para>
         <para>
-            A program lényegében a hanygák feromonokkal történő
-            kommunkiációját szimulálja. A .main futtatása ezzel a szegmenssel ./myrmecologist -w 250 -m 150 -n 400 -t 10 -p 5 -f 80 -d 0 -a 255 -i 3 -s 3  -c 22 -el lehet. A Kolónia (AntThread) egy QThread osztályból származtaott osztály, mivel
-            a számításokat a main threadtől, ami a GUI-t kezeli, el akarjuk különíteni,
-            így nem fagy le az Űrlapunk. Ez a Kolónia végzi a hangyák mozgatását,
-            alkalmaztatja a környezetre a hanygák által kibocsátott vegyületeket..
-            Ezekenfelül updateeli a "világot" is, lásd <varname>grid</varname>,
-            csökkenti a világ feromonszintjét. Emiatt nem mondható tiszta OOP
-            programnak a program például.  Az AntWin nyílván a világot kezeli, olyan dolgokat ad hozzá a funkcionalitáshoz,
-            mint például a világra rács rajzolása, egyes zónák a világon (cell) 
-            berajzolása és ezeken felül maga világi tartalom megjelenítése. Kezeli
-            a GUI eseményeket is amiket lekövetünk.
-        </para>            
+            <link xlink:href="https://bhaxor.blog.hu/2018/10/10/myrmecologist">Elméleti rész erről a linkről származik, ami a bhaxor.blog.hu-ra vezet.</link>
+        </para>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="../../Feladatok/SMNISTforHuman.jpg"/>
+            </imageobject>
+            <caption>
+                <para>A feladatot passzoltam a kiváltható feladat elvégzésével, melyet ez a kép igazol.</para>
+            </caption>
+        </mediaobject>          
     </section>        
     <section>
         <title>Java életjáték</title>
@@ -41,14 +39,35 @@
             Megoldás forrása:             
         </para>
         <para>
-            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/gol.java">Java életjáték.</link>
+            <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/Sejtautomata.java">Java életjáték.</link>
+        </para>
+        <para>Az elméleti, azaz háttérhez kellő forrás: <link xlink:href="https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apb.html#id564903">A Takönyvtár Java részlegén található rész.</link></para>
+        <para>
+            A sejtautomaták világában talán a leírásban szereplő személy neve a legismertebb. A program alapjául az 
+            általa leírt Életjáték szolgál, ami megírva 1970-ben lett. Maga a játék, hogy is mondjam, elég érdekes, mert 
+            nem is igazán egy játékról beszélünk, mivel tőlünk nem vár be inputot, és a deklarált szabályok szerint a 
+            program önmagát futtatva játszik "önmagával". Ezek közül a szabályok közül egy példa, hogyha van egy élő sejt, 
+            aminek kevesebb mint két db másik élő sejt szomszédja van, akkor az ezt követő roundban, azaz menetben vagy körben 
+            meg fog halni az adott sejt. Ebből láthatóan állapotukat vizsgálva két féle sejtet különböztetünk meg, az élőt 
+            és a holt sejtet. Továbbá leszögezhető, hogy egymás között maximálisan csak nyolc darab sejt tud egyszerre interaktálni 
+            egymással. A feladat leírásában arra utalnak, hogy ezek a sejtek egymással fel tudnak venni bizonyos alakzatokat, amelyet 
+            a "siklók" lőnek ki magukból. Ehhez öt darab még életben levő sejtre van szükség.
         </para>
         <para>
-            A Conway-féle sejtautómatát kellett a feladatban elkészíteni. A program egy 2 dimenziós koordinátarendszerben dolgozik, 
-            amelyben találhatók az ún. sejtek, amelyek vagy "élő" vagy "halott", azaz vagy 0 vagy 1 sejtek. Egy véletlenszerű vagy előre meghatározott állapot
-            indítja el az életjátékot, majd több iteráció fut le (ahol minden iteráció meghatároz egy sejtet). Habár egyszerű szabályokkal
-            és akár véletlenszerűekkel is le lehet futtatni, mindig egyedi formák és viselkedéstípusok emelkednek ki a rácsból.
-        </para>            
+            Futtatása, amihez megjegyzem az alosztály kreálások miatt fontos, hogy a neve a programnak ne 
+            változzon. javac Sejtautomata.java, majd a java Sejtautomata parancssorokkal meg is kapjuk a kívánt eredményt. 
+            Ezen felül, a program már futása közben használhatunk négy gombot a billentyűzetünkről, amelyekkel valamennyire 
+            igazgathatjuk a játékot. Az N és a K páros a nagyításra és a kicsinyítésre szolgál az ablak módosításakor. Továbbá 
+            a G gomb a gyorsítása a körök lezajlásának, és az L, ami pedig a lassításért felel.
+        </para>
+         <mediaobject>
+            <imageobject>
+                <imagedata fileref="../../Feladatok/java_eletjatek.png"/>
+            </imageobject>
+            <caption>
+                <para>A kép a lefuttatás utáni eredményt kívánja prezentálni.</para>
+            </caption>
+        </mediaobject>             
     </section>        
     <section>
         <title>Qt C++ életjáték</title>
@@ -61,9 +80,31 @@
         <para>
             <link xlink:href="https://github.com/ratkudani/Prog1/tree/master/Feladatok/Sejtautomata">C++ életjáték.</link>
         </para>
+        <para>Elméleti háttérként szolgált a: <link xlink:href="https://progpater.blog.hu/2011/03/03/fegyvert_a_nepnek">ProgPater.</link></para>
         <para>
-            Ugyan az a feladat mint az előzőben, csak most Qt-s környezetben C++ nyelven. Működési elve és és felépítési elve egy és ugyan az, csak a nyelvi különbségek általl található benne más jellegű szegmens.
-        </para>            
+            Ez a feladat teljesen ugyan az, mint az előbb említett társa, annyi különbséggel, 
+            hogy itt most egy integrált környezetben tudjuk fejleszteni a kis életjátékunkat. 
+            Ehhez hozzá tartozik még az, hogy a Java-s verzióval szemben, itt nem tudjuk megoldani 
+            egyetlen forrásfájllal az egész lefutást, hanem különböző header-öket létrehozva karöltve 
+            meghívjuk más cpp-s forrásokkal őket a programunk fő részébe. Részeit tekintve elsődleges a main, 
+            majd a sejtablak.h, ahol méretek vannak beállítva, majd a sejtablak.cpp, sejtszal.h és a sejtszal.cpp.
+        </para>  
+        <para>Kis csipet bemutatás végett:</para>
+        <programlisting language="c++"><![CDATA[
+            #include <QApplication>
+#include "sejtablak.h"
+#include <QDesktopWidget>
+
+int main(int argc, char *argv[])
+{
+  QApplication a(argc, argv);
+  SejtAblak w(100, 75);
+  w.show();
+  
+  return a.exec();
+}
+
+        ]]></programlisting>          
     </section>        
     <section>
         <title>BrainB Benchmark</title>
@@ -74,16 +115,7 @@
             <link xlink:href="https://github.com/ratkudani/Prog1/tree/master/Feladatok/BrainB">BrainB Benchmark.</link>
         </para>
         <para>
-            A BrainB Benchmark feladata az esport tehetségek felkutatása lenne,
-            úgy, hogy feltérképezi az agy kognitív képességeit, és az 
-            elért pontszámok alapján össze lehet hasonlítani az egyes 
-            egyéneket. Maga a benchmark a "karakterelvesztést" teszteli,
-            vagyis ha a játékban elveszítjük a karakterünket, mennyi ideig
-            tart megtalálnunk, és ha megtaláltuk, mennyi ideig tart elveszítenünk.
-            Ideális esetben rövidebb ideig tart megtalálnunk, mint elveszteni.
-            A program azt is figyeli, hogy az egyes karakterelvesztésekhez
-            milyen bit/sec képernyőváltások tartoznak.
-
+            Ez a feladat ki lett hagyva, behúzással.
         </para>            
     </section>        
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

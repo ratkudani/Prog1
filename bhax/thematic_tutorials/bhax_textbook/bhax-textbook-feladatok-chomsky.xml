@@ -14,12 +14,19 @@
             Megoldás forrása:                
         </para>
         <para>
-            <link xlink:href="https://github.com/pkristof1999/prog1/blob/master/Feladatok/turing.png">Ábra a feladathoz.</link>
             <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/unaris.c"> Unárisba váltó Turing gép</link> 
         </para>
         <para>
-            A feladat lényege, hogy egy olyan programot hozzunk létre, ami a tízes számrendszerből, azaz decimálisból váltsunk át egyes számrendszerre, azaz unárisba pozitív egész számokat. Először is meghívjuk az alap könvtárakat, majd deklarálunk két integer változót. Bekérünk egy egész számot, amit egy for ciklussal alakítunk át. Ami megy sorra, és húzza a vonalakat, majd ha a szám öttel osztható lesz maradék nélkül, akkor egy szóközt helyez le.
+            A feladat lényege, hogy egy olyan programot hozzunk létre, ami a tízes számrendszerből, azaz decimálisból váltsunk át egyes számrendszerre, azaz unárisba pozitív egész számokat. A program, és elméletünk hátteréül, az előadáson áttárgyalt Turing gépet kell alapul vennünk, mint az ugyebár a lecke címében is szerepel. A folyamat során végülis egy for ciklussal megyünk végig a számon, ahol egymás után sorban megjelenített "I" vonalak fogják jelezni a számot, amit eredményül kaptunk. Először is meghívjuk az alap könvtárakat, majd deklarálunk két integer változót. Bekérünk egy egész számot, amit egy for ciklussal alakítunk át. Ami megy sorra, és húzza a vonalakat, majd ha a szám öttel osztható lesz maradék nélkül, akkor egy szóközt helyez le, hogy ezáltal is könnyebbé legyen téve az értelmezése.
         </para>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="../../Feladatok/turing.png"/>
+            </imageobject>
+            <caption>
+                <para>A kép a turing gépet illusztrálja.</para>
+            </caption>
+        </mediaobject>
     </section>        
         
     <section>
@@ -36,33 +43,71 @@
         <para>
             (A feladat megoldása során a Dicső mentorom, Pataki Donát volt)
         </para>
-            <para>
-            Első: ̋
+        <para>
+            Első:
+        </para>
+        <para>
             S (S → aXbc)
-            aXbc (Xb → bX) 
-            abXc (Xc → Ybcc)
-            abYbcc (bY → Yb)
-            aYbbcc (aY → aa)
-            aabbcc
-            </para>
-            <para>
-            Második:
-            S (S → aXbc)
+        </para>
+        <para>
             aXbc (Xb → bX)
+        </para>
+        <para>
             abXc (Xc → Ybcc)
+        </para>
+        <para>
             abYbcc (bY → Yb)
-            aYbbcc (aY -> aaX)
+        </para>
+        <para>
+            aYbbcc (aY →aa)
+        </para>
+        <para>
+            aabbcc
+        </para>
+        <para>
+        </para>
+        <para>
+            Második:
+        </para>
+        <para>
+            S (S → aXbc)
+        </para>
+        <para>
+            aXbc (Xb → bX)
+        </para>
+        <para>
+            abXc (Xc → Ybcc)
+        </para>
+        <para>
+            abYbcc (bY → Yb)
+        </para>
+        <para>
+            aYbbcc (aY → aaX)
+        </para>
+        <para>
             aaXbbcc (Xb → bX)
+        </para>
+        <para>
             aabXbcc (Xb → bX)
+        </para>
+        <para>
             aabbXcc (Xc → Ybcc)
+        </para>
+        <para>
             aabbYbccc (bY → Yb)
+        </para>
+        <para>
             aabYbbccc (bY → Yb)
+        </para>
+        <para>
             aaYbbbccc (aY → aa)
+        </para>
+        <para>
             aaabbbccc
-            </para>
-            <para>
-                Az egésznek az alapja a matematikai logika ismerete, amellyel megtudunk kreálni egy olyan nyelvezetet ami megoldásként szolgál és szerepel a feladat megvalósításához.
-            </para>
+        </para>
+        <para>
+           A feladat egyik érdekessége mielőtt jobban belemennénk az, hogy ez a lecke prezenteltálja a leginkább a feladatcsokor címeként szolgáló személyt. Noam Chomsky, az MIT egyik professzora, aki egy hihetetlen fejlesztője volt a formális nyelvtan történetében. Jelen esetben nekünk a formális nyelvek elsődleges főkategóriáját kell használnunk, a generatív nyelvtant. Ez egy olyan szabályrendszer, amellyel jelsorozatokat lehet létrehozni, azaz lekreálni olyan céllal, hogy megadja a módját az átírási eljárásnak. A feladat megoldása során az előadás diasorán szereplő példázatot használtam fel, mivel tudtam, hogy ez tökéletesen működő modja a feladat megoldásához.
+        </para>
     </section>        
                 
     <section>
@@ -79,7 +124,7 @@
             <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/nyelvszabvany.c"> Nyelvi szabvány</link> 
         </para>
         <para>
-            (A feladat megoldásában Pankotai Kristóf.) A program a két nyelvi keret változását mutatja be. A C99 szabvány egyik legjelentősebb újítása az volt, hogy a felhasználó immáron képes a C++ nyelv típusú kommentelését használni. 
+            (A feladat megoldásában Pankotai Kristóf.) A program a két nyelvi keret változását mutatja be. A C99 szabvány egyik legjelentősebb újítása az volt, hogy a felhasználó immáron képes a C++ nyelv típusú kommentelését használni. Egyéb újításnak vehető a for ciklus szabadabb használata.
         </para>
     </section>                     
 
@@ -113,7 +158,7 @@
             <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/l337d1c7.l"> Saját l33t chiper</link> 
         </para>
         <para>
-            A programunk az L felépítés során, egy másik C forrást hoz létre, melyet a -lfl parancssal kell lefordítani. A kódsor lényege, hogy a betű- és számkészletünkhoz rendel hasonló karaktereket, melyet a futás során kicserél. Ezt úgy éri el, hogy minden betűhöz és számhoz hozzárendel egy négy tagú mátrixot, amelyben jelöljük az általunk vélt megfelelő hasonmás karaktereket.
+            A programunk az L felépítés során, egy másik C forrást hoz létre, melyet a -lfl parancssal kell lefordítani. A kódsor lényege, hogy a betű- és számkészletünkhoz rendel hasonló karaktereket, melyet a futás során kicserél. Ezt úgy éri el, hogy minden betűhöz és számhoz hozzárendel egy négy tagú mátrixot, amelyben jelöljük az általunk vélt megfelelő hasonmás karaktereket. Ennek következményeként annak alapjául, ahány karaktert adunk meg a futtatás során, annak rengeteg számú változatát kaphatjuk vissza, mivel a mátrixok és a véletlenszerűen történő ebből való változás során rengeteg verzióban kaphatunk meg egyetlen egy mondatot.
         </para>
     </section>                     
 
@@ -172,31 +217,31 @@
             </listitem>
         </orderedlist>
         <para>
-           i. -> Azt jelenti, ha eddig nem volt figyelmen kívül helyezve a SIGINT jel, akkor a jelkezelő függvény kezelje. Fordított esetben hagyjuk figyelmen kívül.
+           i. -> Azt jelenti, ha eddig nem volt figyelmen kívül helyezve a SIGINT jel, akkor a jelkezelő függvény kezelje majd ezt a valamit le.
         </para>
         <para>
-            ii. -> Adott egy for ciklus, amelyben az i értékét növeljük egyesével, amíg az értéke eléri a négyet.
+            ii. -> Adott egy for ciklus, amely lényegi része, hogy nullától kezdve folyamatosan növelje az értékét eggyel, amíg négy nem lesz.
         </para>
         <para>
-            iii. -> Ez megegyezik az előzővel, ugyanis for ciklusban nem lesz más értéke, csak a feldolgozás ideje különbözik a két megadott növelési formánál.
+            iii. -> Ugyan az mint az előző, szóval a for ciklus addig növeli a változó értékét, amíg az nulláról el nem éri a négyet.
         </para>
         <para>
-            iv. -> Ez egy hibás program, mert egy időben deklaráljuk az i-t és hivatkozunk rá tömbként. A végrehajtás sorrendjében van a hiba, mert a sorrendiség nem helyes, nem ismerjük.
+            iv. -> A célja az lenne, hogy nullától négyig a tömb valahanyadik (jelen esetben i-edik) elemének érékét növelje, viszont ez egy hibás kód, mert egyszerre van deklarálva minden, így nem tudjuk fordítani.
         </para>
         <para>
-            v. -> Itt a ciklusunk, ami a for elmegy addig, amíg az i változó kisebb mint az n változó és érvényes visszatérített értéket nem kap. Ekkor s és d mutató lesz, ahogy a szegmensből adódóan a első adatra mutató mutató. Itt viszonk kell a két utóbb említett változó a működéshez, mert önmagában nem elég a leírt részlet.
+            v. -> Ez a for ciklus addig megy, amíg az i kisebb mint az n. Majd hozzácsatolunk két mutatót, amihez szükség van a két további változóra.
         </para>
         <para>
-            vi. -> Kivetítjük printf-fel a függvényünket visszajövő értékét, ami az f-ből adódik. A kiértékelés sorrendje nincs megadva szabályszerűen, így nem tudja értelmezni az általunk használt programnyelv. Azaz bugos lesz.
+            vi. ->  Kiíratjuk a printf paranccsal a függvényünk visszatérített értékét. A kiértékelés sorrendhibája miatt hibás a program.
         </para>
         <para>
-            vii. -> Megint csak a függvény visszakapott értékét írjuk ki a printf-fel. Ezt továbbítjuk az "a" nevezetű változónak. Így az "a" az f-fel fog processeket végrehajtani, ami jelen esetben csak egy koppintás, majd ezt írjuk ki.
+            vii. -> Két decimálist íratunk ki a printf-fel.
         </para>
         <para>
-            viii. -> Kiírjuk újból a visszatérített értéket a függvényből, és itt az "f" makró lesz.
+            viii. ->  Majdnem ugyan az mint az előbbi társa. Itt az "a" is változó lesz, amit az "f" fog felhasználni.
         </para>
         <para>
-            A feladat teljes kidolgozása során a kötelező olvasmányok függvényelemzési részletét vettem alapúl.
+            A feladat teljes kidolgozása során a kötelező olvasmányok függvényelemzési részletét alkalmaztam. Segítségül hívtam még Racs Tamás munkáját a megfogalmazásom tökéletesítésében.
         </para>
 
     </section>                     
@@ -221,7 +266,7 @@ $(\exists y \forall x (y<x) \supset \neg (x \text{ prím}))$
             <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/matlog.tex">Matlag</link> 
         </para>
         <para>
-            A feladat megértéséhez először is szükségünk van az elsőrendű logika ismeretére, ugyanis az adott példa alapján, ez négy logikai állításból áll. A legfontosabb megérteni az alap kifejezéseket. A foreall jelzi az univerzális kvantort, azaz a bármely-bármelyik, az exist, a létezik kifejezést jelöli. A wedge az implikáció és a supset pedig a konjukció és a neg pedig a negált.. A program pedig AR nyelven íródott. 
+            A feladat megértéséhez először is szükségünk van az elsőrendű logika ismeretére, ugyanis az adott példa alapján, ez négy logikai állításból áll. A legfontosabb megérteni az alap kifejezéseket. A foreall jelzi az univerzális kvantort, azaz a bármely-bármelyik, az exist, a létezik kifejezést jelöli. A wedge az implikáció és a supset pedig a konjukció és a neg pedig a negált. A program pedig AR nyelven íródott. Ezen alapvető logikai ismeretekkel már megoldható lesz a négy logikai állítás.
         </para>
         <para>
             I. -> Bármely x esetén létezik olyan y, amelynél ha x kisebb, akkor y prím szám lesz.
@@ -283,38 +328,48 @@ $(\exists y \forall x (y<x) \supset \neg (x \text{ prím}))$
 
         <itemizedlist>
             <listitem>
-                <programlisting><![CDATA[int a;]]></programlisting>            
+                <programlisting><![CDATA[int a;]]></programlisting>
+                <para>Egy "a" elnevezésű int típusú változó.</para>            
             </listitem>
             <listitem>
-                <programlisting><![CDATA[int *b = &a;]]></programlisting>            
+                <programlisting><![CDATA[int *b = &a;]]></programlisting> 
+                <para>Egy, a "b" egészre mutató mutató ami az "a" változóra mutat.</para>           
             </listitem>
             <listitem>
-                <programlisting><![CDATA[int &r = a;]]></programlisting>            
+                <programlisting><![CDATA[int &r = a;]]></programlisting> 
+                <para>Egy memóriacímet tartalmazó r integer mutató mutató.</para>           
             </listitem>
             <listitem>
-                <programlisting><![CDATA[int c[5];]]></programlisting>            
+                <programlisting><![CDATA[int c[5];]]></programlisting> 
+                <para>Egy öt elemű integer típusú tömböt.</para>           
             </listitem>
             <listitem>
-                <programlisting><![CDATA[int (&tr)[5] = c;]]></programlisting>            
+                <programlisting><![CDATA[int (&tr)[5] = c;]]></programlisting>  
+                <para>Egy öt elemű integer típusú tömbre mutató mutató, ami a c-re mutat.</para>          
             </listitem>
             <listitem>
-                <programlisting><![CDATA[int *d[5];]]></programlisting>            
+                <programlisting><![CDATA[int *d[5];]]></programlisting> 
+                <para>Egy öt elemű integerekre mutató mutatóiból álló tömb.</para>           
             </listitem>
             <listitem>
-                <programlisting><![CDATA[int *h ();]]></programlisting>            
+                <programlisting><![CDATA[int *h ();]]></programlisting> 
+                <para>Egy integerrel visszatérő paraméterek nélkül álló függvényre mutató mutató.</para>           
             </listitem>
             <listitem>
-                <programlisting><![CDATA[int *(*l) ();]]></programlisting>            
+                <programlisting><![CDATA[int *(*l) ();]]></programlisting> 
+                <para>Egy integerre mutató mutatóval visszetérő, és paraméterek nélkül álló függvényre mutató mutató.</para>           
             </listitem>
             <listitem>
-                <programlisting><![CDATA[int (*v (int c)) (int a, int b)]]></programlisting>            
+                <programlisting><![CDATA[int (*v (int c)) (int a, int b)]]></programlisting>
+                <para>Egy integerrel visszatérő, két integert váró függvényre mutató mutatóval visszatérő, két integert visszaváró függvény.</para>            
             </listitem>            
             <listitem>
-                <programlisting><![CDATA[int (*(*z) (int)) (int, int);]]></programlisting>            
+                <programlisting><![CDATA[int (*(*z) (int)) (int, int);]]></programlisting>
+                <para>Egy fuggvénymutató, ami egy integert visszaadó és két integert kapó függvényre mutató mutatót visszaadó, integert eredményül kapó függvényre.</para>            
             </listitem>            
         </itemizedlist>       
 
-
+        
         <para>
             Megoldás forrása:  
         </para>
@@ -322,9 +377,12 @@ $(\exists y \forall x (y<x) \supset \neg (x \text{ prím}))$
             <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/declar.c">A feladatok deklarálva</link>
         </para>         
         <para>
-            A feladat megoldásában más segített, tutorált, de még így sem értem igazán, szóval majd befejezem.
-            A feladat megoldása során a megint csak a kötelezően meghatározott fejezetek alapján dolgoztam ki, amelyek a deklarációs feladatforrásban találatóak meg.
+            Tutorálóm: Pataki Donát, bár segítségül hívtam Nagy Lajost is.
         </para>
+        <para></para>
+        <para></para>
+        <para></para>
+        
     </section>                     
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

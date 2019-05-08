@@ -19,8 +19,17 @@
         <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/dmatrix.c">Mátrix megoldása</link> 
         </para>
         <para>
-            A programunk egy négyzetes mátrixról szó, amelynek a fő tulajdonsága az, hogy oszlopainak és sorainak száma megegyezik, és a főátlója alatt csupa nullákat kapunk, bár a kódunkban majd az átló alatti rész lesz csupa nulla. Először is deklaráljuk a két fő válrozónkat, ami a sorok száma lesz, és a tm mutatót, ami double típusú. Az if-ben szereplő részt megírva, a tm változó eredménye a malloc paranccsal megkapott tárterületet, ami a sor, szorozva 8 bájtnyi mérettel rendelkezik. A malloc-ot rá lehet kényszeríteni, hogy bármit visszaadjon, mert alapesetben void*-ot adna vissza. Ezután vizsgáljuk, hogy a malloc tud-e egyáltalán területet foglalni, mert ha nem, akkor a return -1-e visszaugrunk a program elejére. További kidolgozás alatt.
-        </para>          
+            A programunk egy négyzetes mátrixról szó, amelynek a fő tulajdonsága az, hogy oszlopainak és sorainak száma megegyezik, és a főátlója alatt csupa nullákat kapunk, bár a kódunkban majd az átló alatti rész lesz csupa nulla. Először is deklaráljuk a két fő válrozónkat, ami a sorok száma lesz, és a tm mutatót, ami double típusú. Az if-ben szereplő részt megírva, a tm változó eredménye a malloc paranccsal megkapott tárterületet, ami a sor, szorozva 8 bájtnyi mérettel rendelkezik. A malloc-ot rá lehet kényszeríteni, hogy bármit visszaadjon, mert alapesetben void*-ot adna vissza. Ezután vizsgáljuk, hogy a malloc tud-e egyáltalán területet foglalni, mert ha nem, akkor a return -1-e visszaugrunk a program elejére. A lényegi rész ezután következik, ugyanis önmagával a malloc-cal a sikeres memóriafoglalás után megkapjuk a méretet, és a hozzájuk kapcsolódó mutató mutatót. Ehhez kell hasznosítanunk a feladat címében is szereplő pointer, azaz mutató egységet, a double**-ot. A program végén lévő for ciklus szegmens pedig feltölti a mátrixunk alsó felét.
+        </para> 
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="../../Feladatok/doublecscs.png"/>
+            </imageobject>
+            <caption>
+                <para>A kép, a double ** háromszögmátrixot ábrázolja.</para>
+                <para>Forrás: Bátfai Norbert prezentációjából.</para>
+            </caption>
+        </mediaobject>         
     </section>        
     <section>
         <title>C EXOR titkosító</title>
@@ -52,7 +61,7 @@
         <link xlink:href="https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html"> Ezen az oldalon taláható meg a megoldás. </link> 
         </para>
         <para>
-            Ebben az esetben ugyan azt akarjuk elérni, mint a C nyelvű titkosító helyzetében. Azaz hogy az általunk, vagy a felhasználó által meghatározótt kulccsal egy szintén saját választott szöveges dokumentumot kódolunk le. A szerkezete és működése ezáltal azonos lesz, az előbb említett nyelvben megírt társával. Fordítani a javac programneve.java . Majd a program futtatásához a köverkező kell: java programneve kulcs <![CDATA[> titkosított.szöveg]]> .
+            Ebben az esetben ugyan azt akarjuk elérni, mint a C nyelvű titkosító helyzetében. Azaz hogy az általunk, vagy a felhasználó által meghatározótt kulccsal egy szintén saját választott szöveges dokumentumot kódolunk le. A szerkezete és működése ezáltal azonos lesz, az előbb említett nyelvben megírt társával. Fordítani a javac programneve.java . Majd a program futtatásához a köverkező kell: java programneve kulcs <![CDATA[> titkosított.szöveg]]> . Egyéb nyelvi különbségek között kiemelendő, hogy itt a titkosítás egy külön erre a célra létrehozott osztályban lelhető meg, amit külön kell meghívni.
         </para>            
     </section>        
     <section xml:id="bhax-textbook-feladatok-caesar.EXOR-toro">
@@ -84,15 +93,22 @@
         <para>
             <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/nr.r"> Neurális</link>
         </para>
+        <para>A feladat megoldása során Pataki Donát segítségét kértem.</para>
         <para>
-            Neurális háló ahol and, or és exor kapuk vannak implementálva. Az and és or moködése magától értetődő. ̋
-            Az elobbinél ha mindkettő 1 akkor lesz az eredményük 1. Az utóbbinál pedig ha az egyik 1 akkor lesz az  ̋
-            eredményük 1. Az exor pedig nem jelent mást minthogy a két érték nem egyezik meg, tehát 0 és 1 esetén
-            lesz az eredmény 1 és ez fordított esetben is igaz. A neurális hálóról még érdemes annyit megjegyezni,
-            hogy 3 részre lehet osztani. Van az input layer, ahol megkapja az adatokat. Ezt követi egy vagy több hidden
-            layer, ahol a varázslat történik. Majd végül jön az output layer, ahol ha minden jól működik a megfelelo ̋
-            érétket kapjuk vissza.
-        </para>            
+            Maga a neurális hálózat, röviden definiálva a neuronok egymásba ágyazódott csoportja. A neuron leírása pedig az emberi idegrendszer legkisebb része. Ez egy olyan mesterségesen előállított neurális szerkezet, ahol a feladat címében is említett főleg logikai elemeket használjuk. Kezdetlegesen kiemelendő, hogy az OR és az AND abszolút logikai összekötőkként szolgálnak, azaz az OR lesz a VAGY tényező, amíg az AND a logikai ÉS-t jelenti. Itt és most, azt kell leszögezni, hogy a kapott értékek, azaz eredményvizsgálaté a fő szerep. Amennyiben az OR esetét tekintjük, akkor az eredményünk akkor lesz 1, ha mindkettő szegmens értéke 1. Ezzel szemben az AND logikai esetben, elég egy kitételnek, azaz csak az egyik ágazatnak értékének 1-nek lennie, hogy az eredmény is ennyi legyen. A végső eset, amiről az eddigi feladatok is szóltak, az EXOR-ról szól. Ebben az esetben pedig a kiértékelendő értékeknek különbözniük kell, (amely 0 és 1 lehet) hogy megkapjuk a célnak kitűzőtt egyest.
+        </para>
+        <para>
+        A típusait, azaz a rétegeit tekintve három különböző réteget tudunk megnevezni. Az első az input, azaz a bemeneti layer, ahol magába a neutrális hálózatunkba visszük be az adatot. Második layeré a kimeneti réteg, ami a környezetbe viszi át az adatot. Utolsó sorban, a harmadik layer, ami a rejtett szegmens, ahol végbe megy a kapcsolódás, tanulás és a folyamatok tömkelege.
+        </para>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="../../Feladatok/mestersegesneuron.png"/>
+            </imageobject>
+            <caption>
+                <para>A kép, a mesterséges neuron vázlatát kívánja bemutatni.</para>
+                <para>Forrás: <link xlink:href="https://hu.wikipedia.org/wiki/F%C3%A1jl:Mesters%C3%A9ges_neuron_v%C3%A1zlatos_rajza.png">https://hu.wikipedia.org/wiki/F%C3%A1jl:Mesters%C3%A9ges_neuron_v%C3%A1zlatos_rajza.png</link>.</para>
+            </caption>
+        </mediaobject>                 
     </section>        
     <section>
         <title>Hiba-visszaterjesztéses perceptron</title>
@@ -106,15 +122,10 @@
             <link xlink:href="https://github.com/ratkudani/Prog1/blob/master/Feladatok/perceptron.cpp"> Visszaterjesztés.</link>
         </para>
         <para>
-            (A feladat megoldásában Dicső tutorom, Pataki Donát segített)
+            A feladat megoldásában Pataki Donát segített.
         </para>
         <para>
-            A perceptron nem más mint egy algoritmus model, ami az emberi agy muködését próbálja utánozni. Hason-
-            ló a neurális hálóhoz azonban van pár különbség. Ugyanúgy input után elkezd varázsolni és jobb esetben
-            és megfelelo mintavétel után helyes eredményt ad vissza. Azonban a közbelső értékeknek van súlya amit  ̋
-            még adott konstansokkal is ki lehet egészíteni. Az így kapott súlyokat összeadja és ha ez elér egy bizonyos
-            szintet, akkor a program adott része aktiválódik. És egy a lineáris folyamat ismétlodik amíg el nem jut a  ̋
-            válaszig.
+            A hiba-visszaterjesztés nélkül perceptronról szeretnék bevezetésként regélni. Önmagában ez egy, az emberi elme, annak is a központjának, azaz az agy működésének elvét szeretné lemásolni. Maga, mint algoritmus, futása során eléggé hasonlatos az előbbi feladatban szereplő társához, a Neutrális hálozathoz. Ennek viszont a menetében eltérések szerepelnek, ugyanis itt súlyokat vezetünk be a mechanikába. A súlyok lényege, hogy az első lefutás utáni kapott értéket ezek által tudjuk módosítani azáltal, hogy az említett eset értékét növeljük, vagy csökkentjük. De hogy mikor és hogyan, mennyit kéne modifikálnunk rajta? Ekkor térünk ki a teljes feladat címre, a hiba-visszaterjesztése, ugyanis ezáltal lesz megvalósítva a feladat az általunk korábban említett harmadik layerben. Ez egy lineáris módon történő folyamat során addig fogja módosítgatni magának a súlyok értékét, amíg a hibát a legkisebb mértékig nem tudjuk leredukálni, azaz az elején bevitt értékig. A futtatásunk során a szokásos C++-os konzolos verziót használjuk: g++ mlp.hpp main.cpp -o "aminek elakarjuk nevezni" -lpng. A nem lefordulás esetén odailleszthetjük a végére, hogy: -std=c++11.
         </para>            
     </section>        
         
