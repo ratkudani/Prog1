@@ -7,6 +7,7 @@
             Az iniciális dokumentum szerkezetének kialakítása.
         </revremark>
     </revision>
+    
     <revision>
         <revnumber>0.0.2</revnumber>
         <date>2019-02-14</date>
@@ -14,7 +15,8 @@
         <revremark>
             Inciális feladatlisták összeállítása.
         </revremark>
-    </revision>    
+    </revision> 
+       
     <revision>
         <revnumber>0.0.3</revnumber>
         <date>2019-02-16</date>
@@ -26,6 +28,7 @@
             repójába.
         </revremark>
     </revision>
+    
     <revision>
         <revnumber>0.0.4</revnumber>
         <date>2019-02-19</date>
@@ -34,6 +37,7 @@
             Aktualizálás, javítások.
         </revremark>
     </revision>
+    
     <revision>
         <revnumber>0.0.5</revnumber>
         <date>2019-03-01</date>
@@ -42,6 +46,7 @@
             A Helló, Turing csokor megkezdése és a dokumentum formájának a személyre szabása és a saját repository-ba való feltöltés.
         </revremark>
     </revision>
+    
     <revision>
         <revnumber>0.0.6</revnumber>
         <date>2019-03-04</date>
@@ -50,6 +55,7 @@
             A Helló, Turing csokor nyolc feladatából az első öt feladatának befejezése.
         </revremark>
     </revision>
+    
     <revision>
         <revnumber>0.0.7</revnumber>
         <date>2019-03-05</date>
@@ -58,6 +64,7 @@
             A Helló, Turing csokor befejezése és a Helló, Chomsky feladatcsokor átfutása.
         </revremark>
     </revision>
+    
     <revision>
         <revnumber>0.0.8</revnumber>
         <date>2019-03-08</date>
@@ -66,6 +73,7 @@
             A Helló, Chomsky feladat csokor megkezdése, és a github frissítése.
         </revremark>
     </revision>
+    
     <revision>
         <revnumber>0.0.9</revnumber>
         <date>2019-03-11</date>
@@ -74,6 +82,7 @@
             A Helló, Chomsky csokor befejezése, és a teljes feladatsor feltöltése githubra.
         </revremark>
     </revision>
+    
     <revision>
         <revnumber>0.1.0</revnumber>
         <date>2019-03-15</date>
@@ -82,6 +91,7 @@
             A Helló, Caesar feladatok elkezdése.
         </revremark>
     </revision>
+    
     <revision>
         <revnumber>0.1.1</revnumber>
         <date>2019-03-17</date>
@@ -90,36 +100,104 @@
             A Helló, Caesar csokor felének a kidolgozása.
         </revremark>
     </revision>
+    
     <revision>
         <revnumber>0.1.2</revnumber>
         <date>2019-03-18</date>
         <authorinitials>ratku.dani</authorinitials>
         <revremark>
-            A Helló, Caesar feladatcsokor majdnem teljes elkészítése.
+            A Helló, Caesar feladatcsokor teljes elkészítése.
         </revremark>
     </revision>
+    
     <revision>
         <revnumber>0.1.3</revnumber>
         <date>2019-03-25</date>
         <authorinitials>ratku.dani</authorinitials>
         <revremark>
-            A Helló, Mandelbrot csokor kötelezőinek elkészítése.
+            A Helló, Mandelbrot csokor elkészítése és a Gutenberg elkezdése.
         </revremark>
     </revision>
+    
     <revision>
         <revnumber>0.1.4</revnumber>
-        <date>2019-03-25</date>
+        <date>2019-03-30</date>
         <authorinitials>ratku.dani</authorinitials>
         <revremark>
-            A Helló, Mandelbrot csokor kötelezőinek elkészítése.
+            A Helló, Welch elkészítése.
         </revremark>
     </revision>
+    
     <revision>
         <revnumber>0.1.5</revnumber>
-        <date>2019-03-25</date>
+        <date>2019-04-04</date>
         <authorinitials>ratku.dani</authorinitials>
         <revremark>
-            A Helló, Mandelbrot csokor kötelezőinek elkészítése.
+            A Helló, Mandelbrot csokor majdnem teljesen kész.
         </revremark>
     </revision>
+    
+    <revision>
+        <revnumber>0.1.6</revnumber>
+        <date>2019-04-06</date>
+        <authorinitials>ratku.dani</authorinitials>
+        <revremark>
+            A Helló, Mandelbrot csokor képekkel is kidolgozva kész.
+        </revremark>
+    </revision>
+    
+    <revision>
+        <revnumber>0.1.7</revnumber>
+        <date>2019-04-10</date>
+        <authorinitials>ratku.dani</authorinitials>
+        <revremark>
+            A Helló, Schwarzenegger csokor elkészítése.
+        </revremark>
+    </revision>
+    
+    <revision>
+        <revnumber>0.1.8</revnumber>
+        <date>2019-04-20</date>
+        <authorinitials>ratku.dani</authorinitials>
+        <revremark>
+            A Helló, Chaitin csokor még nem teljes kidolgozása, és az eddig leírt könyv struktúrális ellenőrzése.
+        </revremark>
+    </revision>
+    
+    <revision>
+        <revnumber>0.1.9</revnumber>
+        <date>2019-04-25</date>
+        <authorinitials>ratku.dani</authorinitials>
+        <revremark>
+            A Helló, Chaitin csokor befejezése. Nyelvi helyességi vizsgálat a könyvben.
+        </revremark>
+    </revision>
+    
+     <revision>
+        <revnumber>0.2.0</revnumber>
+        <date>2019-05-01</date>
+        <authorinitials>ratku.dani</authorinitials>
+        <revremark>
+            Eddigi munka teljes leellenőrzése a licence-s linkelésekkel és helyesírás javítással.
+        </revremark>
+    </revision>
+    
+    <revision>
+        <revnumber>0.2.1</revnumber>
+        <date>2019-05-05</date>
+        <authorinitials>ratku.dani</authorinitials>
+        <revremark>
+            Összes feladatcsokor véglegesítése és ellenőrzése és a tutoráljaim és tutorálóim hivatalos rögzítése.
+        </revremark>
+    </revision>
+    
+    <revision>
+        <revnumber>0.2.2</revnumber>
+        <date>2019-05-09</date>
+        <authorinitials>ratku.dani</authorinitials>
+        <revremark>
+            Helló, Gutenberg csokor befejezése. A dokumentum teljes körű végső finomítása és átadása.
+        </revremark>
+    </revision>
+    
 </revhistory>

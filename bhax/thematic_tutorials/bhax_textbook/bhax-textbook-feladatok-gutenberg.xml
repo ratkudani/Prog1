@@ -16,74 +16,37 @@
             <citation>PICI</citation>       
         </para>
         <para>
-            1.2. 
-            A magas szintű nyelven megírt programokat forrásszövegnek, a nyelvtani szabályokat 
-            pedig szintaktikai szabályoknak nevezzük. Frodítóprogrammal tudjuk fordítani, lexikális egységekre bontja 
-            tárgyprogramot hoz létre. Ezt majd futtatni kell, amit a futtató rendszer felügyel.
-            Az interpretes technika nem készí tárgyprogramot, utasításonként elemz a programot, értelmezi és 
-            végrehajtja. Minden nyeévnek megvan a saját szabvány, a hivatkozási nyelve. Az implementációk a 
-            forsítóprogramok vagy az interpreterek, egy platformon több is lehet belőlük.  
+            Az elején egy bevezetést kapunk a programozási nyelvek általánosságairól, főleg az alaptani dolgokról, 
+            és a típusokról. Háromféle programozási nyelvet különböztetünk meg egymástól. Ez az assembly nyelv, ami úgy 
+            ismerhetünk, mint a gépi nyelvhez legközelebb eső és álló programozási nyelv. Másodikként beszélhetünk a 
+            gépi nyelvről, és ami a mi esetünkben most a legfontosabb, a magasszintű programozási nyelvek. Az ebben megírt 
+            típusú kódok elnevezése a forrás lesz, amíg a nyelvtani szabálykeretrendszert szintaktikai szabályként definiálunk. 
+            Először a megírt forrást fordítani kell, hogy az gépi nyelvű legyen, ezáltal megértetve a számítógéppel amit szeretnénk, 
+            és majd csak ezután jön a tényleges futtatás. Bevezetésre kerül még az interpreteres módszer is, amely 
+            az előzővel ellenben nem készíti el a tárgyprogramot. Rengeteg futtatási környezet van már a világon.
         </para>
         <para>
-            1.3.
-            Imperatív nyelvek: algoritmus mely mülködteti a processzort, utasítások, változók, 
-            eljárásorientált- és objektumorientált nyelvek. Deklaratív nyelvek: nem kötődnek a Neumann 
-            architektúrához, funkcionális- és logikai nylevek
+            Tovvábiakban szó lesz az imperatív nyelvekről és a jelölő rendszerekről. Kezdjünk is bele egyből az előbb 
+            említett résszel. Önmagában ez egy olyan algoritmus, ami a processzor működéséért felel, ezáltal kezeli az 
+            utasításokat, és eljárásokat is. Emellé megemlítendő a deklaratív nyelv is, amely nem feltétlen 
+            hasonló mint az előbbi társa, ugyanis ez eltér a Neumann elvektől. Most pedig elindulhatunk kielemezni az 
+            első mondatban említett második főelemet. Szóval, első sorban tisztázzuk, hogy ebből többféle is létezik. 
+            Például terminális és akármilyen meglepő is lehet, de a nem terminális is. Ez kiemelendően fontos a szintaktikai 
+            szabályok megalkotásához.
         </para>
         <para>
-            1.4.
-            Jelölésrendszerek: terminális, nem terminális, alternatíva, opció, iteráció.
-            Ezekkel szintaktikai szabályoka lehet írni: bal oldalon nem formális, :, majd elemsorozat.
-            Programozni megtanulni papíron nem lehet.
+            Előző fejezetek után jött egy elég komoly szakasz, ahol a különböző adattípusokról ejtett szót az író, és 
+            hogy ez milyen összetevője is pontosan az általunk ismert programozásnak. Erre példa lehet mondjuk valaminek 
+            az értéke. Léteznek absztrakt típusok és alaptípusok. Az elsőt vizsgálva három összetevője van. Első a tartomány, 
+            a kapcsolódó műveletek, és a reprezentáció. Az altípussal pedig inkább lekérdezésekhez 
+            használjuk, ha valamilyen típus érdekel minket.
         </para>
         <para>
-            2.4.
-            Az adattípus absztrakt programozási eszköz, más eszköz  komponenseként jelenik meg. 
-            Az adattípust a tartomány (amilyen típust felvehet), a művelet (amit a tartomány elemein 
-            elvégezhet) és a reprezentáció (az értékek tárban való megjelenése) határoz meg.
-            A programozó is definiálhat típusokat. Az alaptípusból tudunk más típust (alaptípust) 
-            származtatni, szűkített tartománnyal de ugyanolyan műveletekkel.
-        </para>
-        <para>
-            2.4.1.
-            Az egész típus belső ábrázolása fixpontos, a valósé lebegőpontos. A két típus együtt 
-            a numerikus típusok, mivel numerikus műveletek hajthatók rajtuk végre
-            A karakrer típus elemei a karakterek, a karakterlánccé pedig a sztringek. 
-            A logikai típus tartományának elemei a hamis és az igaz érékek. A felsorolás típust saját 
-            típusként lehet létrehozni, megadva  atrtomány elemeit. Sorszámozott típusnak számít az 
-            egesz, karakteres, logikai és felsorolás típusok (minden elemnek van megelőzője és rákövetkezője).
-            A sorszámozottak egy alaptípusa az intervallum típus.
-        </para>
-        <para>
-            2.4.2.
-            Összetett típus a tömb és a rekord. A tömb elemei azonos típusuak, lehetnek egy vagy többdimenziósak. 
-            A tömb elemeire indexek tségével tudunk hivatkozni. Absztrakt adatszerkezetek 
-            folytonos ábrázolására alkalmas. A rekord tartományának elemei értékcsoportok, melyek elemei (mezői) 
-            különböző típusuak lehetnek. Minden mezőnek van neve és típusa. A C és a Pascal esetében is 
-            a rekord típusa egyszintű (nincsenek almezők), de a mezők típusa lehet öszetett. A rekord nevével 
-            (eszköznév) az összes mezóre tudunk hivatkozni, ha csak egyre akarunk akkor: eszköznév.mezőnév.
-        </para>
-        <para>
-            2.4.3.
-            A mutató típus tartományának elemei tárcímek, így valósítjuk meg az indirekt címezést (minden mutató egy 
-            címre mutat). Van egy speciális eleme, a NULL, ami nem mutat sehova.
-        </para>
-        <para>
-            2.5. 
-            A nevesített konstansnak van neve, típusa és értéke. Mindig deklarálni kell. 
-            Szerepe, hogy a sokszor előforduló értékeket beszéló névvel látjuk el, így könnyebben tudunk utalni 
-            rá a szövegben, illetve ha az értékét ki akarjuk cserélni, akkor ezt elég egy helyen megtenni.
-        </para>
-        <para>
-            2.6.
-            A változónak van neve, attribútuma, címe és értéke. A kódban mindig a név jelenik meg, 
-            ehhez kölönböző módon rendeljük hozzá a másik hármat. Az attribútum a változó viselkedésé határozza 
-            meg a futás alatt (ez többnyire a típust jelenti). Háromfajta deklarációt különböztetünk meg itt: 
-            explicit, implicit és autómatikus. A változó címe a tárnak azt arészét határozza meg, ahol 
-            a vátozó értéke van. A cím rendelhető: statikus, dinamikus és a programozó által vezérelt 
-            tárkiosztással. A változó értéke a címen elhelyezkedő bitkombináció. Az érték meghatározható: 
-            érékadó uatsítással. A kezdőértékadás lehet: explicit (a programozó választ a típusnak megfelelő 
-            tetszóleges értéket) és autómatikus (a programtól kap 0-áskezdőértéket).
+            A soron következő témakör az I/O volt ami az oprendszerrel áll kapcsolatban. Működése során a memóriával foglalatoskodik,
+            azan onnak fogad és ad információt, adatot. Rengetek típus van. Karakter, ami lehet 
+            string. Egész ami fixpontos, és valós, ami lebegő pontos. Van még logikai, ami lehet igaz és 
+            hamis értékű. Ezt az informatikában egyessel és nullással jelöljük. Végül pedig a mutató, ami érték kérő. 
+            Név, típus és érték az a három alkotó elem, amely a konstansot nevesítetté teszi.
         </para>
     </section> 
            
@@ -94,39 +57,24 @@
             <citation>KERNIGHANRITCHIE</citation>
         </para>
         <para>
-            Megoldás videó: <link xlink:href="https://youtu.be/zmfT9miB-jY">https://youtu.be/zmfT9miB-jY</link>
-        </para> 
-        <para>
-            1.1.
-            Annak a módja, hogy egy programozási nyelvet elsajátítsunk, nem más mint higy programokat írjunk az adott nyelven. 
-            A C nyleg tanulását is kezdjük úgy, mint más nyelvek tanulása esetén, a legegyszerűbb programmal a 
-            Hello World magyar változatával. Fordítjuk: cc figyel.c, majd futtatjuk: ./a.out. 
-            Mivel a cc-vel fordítottuk ezért egy alapértelmezett kimenetbe megy az a.out-ba. 
-            A C programok tetszőleges nevű függvényeket tartalmaznak amelyek a számítási műveleteket határozzák meg. 
-            Speciális függvény a main (főprogram) mely minden programban elő kell forduljon. 
-            Itt hívjuk meg az előre megírt függvényeket, vagy itt írjuk meg. A program olyan sorrendben végzi el 
-            az utasításokat ahogy azok a main-be vannak. A függvény neve után szereplő () az argumentum listát tartalmazza, 
-            a {} pedig az utasítás listát (lehetnek üresek is). 
-            A printf("Figyelem emberek\n") függvényhívás a kimenetbe írja a Figyelem emberek szöveget, a végére pedig egy sortörést. 
+            A könyv azzal kezdődik, hogy összefoglalja a C programozási nyelv eredet mítoszát, és annak közeli kapcsolatát a UNIX-xal, ami egy 
+            operációs rendszer. Olyan igazságokat foglal magában, mint a C nyelv megtanulásának legjobb módja, ami míly meglepő a gyakorlásban 
+            rejlik. Továbbá kifejti mi is a nyelvnek az alap sója és borsa. Ilyen eset például a vezérleti elv, ami a 
+            szintaktikát foglalja magába, és kiemeli a ";" végi fontosságot, és a változók bevezetését.
         </para>
         <para>
-            1.2.
-            Egysoros kommentet a //-el, többsorosat pedig a /* */ jelek segítségével hozunk létre. Az int az egész, a float a lebegő, char a karakter, 
-            stb típusú váltózókat jelöli. Sorok végét ;-vel zárjuk le.
-            A while ciklus működése: akkor áll le, amikor a feltétel hamissá válik. 
-            A printf-ben lévő %-al meg tudjuk adni, hogy a kiírandó szám milyen típusú lesz.
+            Fő felhasználatáról beszél, hogy milyen jól lehet vele operációs rendszerek kidolgozásakor. Folytatólagosan kitér 
+            az If függvény működésére, mégpedig hogy ha az If igaz , akkor az jó, ha meg nem, akkor az else ágon lesz a továbbfutása a 
+            programnak. Ezután sorra veszi a While ciklust és annak elvét. Kibővíti a Do-While-al, ami addig csinálja az 
+            általunk kért folyamatot amíg el nem éri a megint csak általunk meghatározott feltételt. Na meg hát ki ne maradjon a For ciklus se ebből 
+            a halomból, így hát róluk is esett szó, amelynek működési elvben nagyban hasonlít a Do-ra.
         </para>
         <para>
-            1.3.
-            A for ciklus sokban hasonlít a while-hoz, ő is akkor lép ki a ciklusból, ha a feltétel hamissá válik.
-        </para>
-        <para>
-            1.4.
-            A #define segítségével a program elején szimbolikus állandót vagy változót adunk egy karakterlánchoz.
-        </para>
-        <para>
-            1.5.
-            A getchar() függvény híváskor karaktert olvas be, a putchar() hívásakor pedig karaktert ír a kimenetre.
+            Kiemelődik mi nem elérhető a nyelvben. Például hogy nincs benne objektum, ami akár jó is lehet a szabad forráskód írás tekintetében. 
+            Visszatéregetünk az előző fejezetben leírt ciklusok megszakítására és újra folytatására amit a break-kel érhetünk el, az utóbb 
+            említettet pedig a continue-val. Végül, az általam kiolvasott utolsó kiadott fejezetben pedig arról kellett kiértékelést adnom az olvasottakról, 
+            hogy minek által tudunk kombinált utasítást írni. Ezt a könyv, mint az eddigieket is több bekezdésen keresztül részletesen taglalja a lehető legegyszerűbb és 
+            a lehető legtisztább, gyorsabb megértés érdekében. Célja ezzel, hogy egy parancs kiadásával tudjuk többet is futtatni.
         </para>
   </section>
     <section>
@@ -134,29 +82,33 @@
         <para>                
             <citation>BMECPP</citation>
         </para>
-	<para>
-            A könyv első részében (16.oldalig) a C++ nem objektumorientált különbségei, újításai vannak a C nyelvhez képest.
-	</para>
-	<para>
-            Függvényparaméterek és visszatérési érték: az üres paraméterlista azt jelenti, nincs a függvénynek paramétere, nem pedig azt, hogy tetszőleges számú paraméterrel hívható.
-	</para>
-	<para>
-            A main függvénynek tudunk parancssor argumentumokat adni, illetve nem kötelező a return 0; használata, ez alapértelmezés.
-	</para>
-	<para>
-            A bool típus használata átláthatóbb, praktikusabb kódot eredményez.
-	</para>
-	<para>
-            A C++-ban mindenhol állhat deklaráció, ahol utasítás is.
-	</para>
-	<para>
-            Függvények túlterhelése: ugyanolyan néven több függvényt is létrehozhatunk, amennyiben különbözik az argumentumlistájuk. A függvényt nem csak a neve, hanem argumentumlistája is meghatározza, ezáltal a névadás egyszerűbbé válik.
-	</para>
-	<para>
-            Alapértelmezett függvényargumentumok: megadhatunk alapértelmezett függvényargumentumokat is, melyek híváskor elhagyhatók. Arra viszont ügyelnünk kell, hogy milyen sorrendben hagyhatók el.
-	</para>
-	<para>
-            Refetípussal történő paraméterátadás: a cím szerinti átadás egy modszere, mely sokat egyszerűsíthet a függvényünkön, nem kell mindenhol mutatót hasznáni, ha referenciaátadást alkalmazunk. Itt is vigyázni kell néhány dologra, pédául arra, hogy egy függvényben sose adjunk vissza pointert vagy referanciát lokális változóra vagy érték szerint átadott paraméterre.
-	</para>
+        <para>
+            Mint az előzőben, itt is egy programozási nyelv bevezetésről lesz szó, minek által valahogy csak el kell kezdeni egy programozás specifikus 
+            könyv megírását. Ebben a könyvben már a C++ magasszintű programozási nyelvről lesz szó, amelyben a magasszintű programozási 1 nevezetű egyetemi 
+            második féléves tárgyunk nagyja épült, főleg a feladatcsokrok második felétől indulóan, ahol már szerves részévé vált a kidolgozásunkban. Elkezdi 
+            az eredettörténetét, ahol kapcsolatba állítja a C programozási nyelvvel és összeveti az utóbb említett nyelv hasonlóságaival, és az ellentéteivel.
+        </para>
+        <para>
+            A könyv bőszen megemlíti a program formális szabványait, és ezt úgy, hogy több különböző 
+            esetre is levetíti. Erre példát statuálhat amikor az alap szabványt említi és amikor argumentumokat is 
+            szeretnénk alkalmazni a programunkban a kódolás során. Még megemlítésre kerül egy olyan különbség az elődjével szemben (
+            ami a C), hogy itt új típussal is találkozunk, még pedig a bool-al, ami a logikához kapcsolódik, mert ezáltal kreálhatunk 
+            mostantól olyan változót, aminek logikai értéke van. Plusz a wchar, ami sok bájt tárolására hasznos, és emiatt is lett létrehozva.
+        </para>
+        <para>
+            Hatalmas újítások közt szerepel még, hogy mostantól az elődjével szemben képes az operátor és függvény túlterhelésre is. 
+            Azaz képesek vagyunk arra is, hogy egyazon elnevezésű függvényeket tudjunk használni abban az esetben, ha azok argomentumaikban 
+            különböznek egymástól. 
+        </para>
+        <para>
+            Kifejti a referencia típus előnyeit, melyet fokoz a sablonok használatának hasznosságáról. Ezek után jön, hogy 
+            mivel is dolgozik maga a nyelv, mégpedig stream és bájt sorozatok tömkelegével. Ámbár ekkor már tudjuk, hogy milyen 
+            boilerplate szerepe van az iostream implementálásának a programunkba, ugyanis ezáltal tudunk manipulátorokkal is dolgozni, ami 
+            azért elég hasznos. Ezt veti össze hasznosság és produktivitás szempontjából az endl és a setprecision között. Továbbá 
+            ehhez szükség van az állománykezeléshez is, amely külső fájlokkal való dolgozást jelenti. Elődjével szembeni másik kiválósága hogy tudunk vele 
+            írni és ovlasni is külső forrásból. Az utolsó érdemleges szegmens pedig nem más, mint ami az egyetemi tanulmányaink során a bevezetés a 
+            programozásba nevezetű tárgyunkban már szintén szóba került hiba kereséses elkapás, azaz a try-catch nevezetű hiba kiírás. Ennél 
+            deklarálnunk kell hogy milyen hibát is keressen és adjon ki.
+        </para>
     </section>
 </chapter>
